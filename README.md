@@ -16,3 +16,9 @@ Uses SAS and Proc SQL to determine the effect of carat size on diamond ring pric
 
 #### diamonds.R
 Exact same study and process as in diamonds.sas, but in R. 
+
+#### Birthweight_Analysis.R
+
+A look into how various factors such as mother's age, race, and gestational age affects the birthweight of a child, with a focus on showing the validity of multiple regression though K-S tests, Breusch-Pagan, and Monte Carlo Cross Validation. 
+
+
