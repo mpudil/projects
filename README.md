@@ -11,11 +11,9 @@ Looks at the statistics of the GPA of previous students at BYU, using SAS and Pr
 #### STEM.R:
 Determines the probability of switching from a STEM major, using R. 
 
-#### diamonds.sas:
+#### Diamonds:
 Uses SAS and Proc SQL to determine the effect of carat size on diamond ring price. Includes transformation of variables for regression, prediction interval (with graph), and computations for un-transformed R sq. and mean absolute prediction error. 
-
-#### diamonds.R
-Exact same study and process as in diamonds.sas, but in R. 
+Process also completed in R. 
 
 #### Birthweight_Analysis.R
 
