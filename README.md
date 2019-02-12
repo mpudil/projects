@@ -27,3 +27,6 @@ Uses a glm model robust to heteroskedasticity along with cross-validation to mod
 
 #### ScottishHills
 Uses Scottish hill racing (fell running) data to look at influential observations and outliers in data. Coded in R and in SAS. Includes unofficial report in LaTeX. 
+
+#### Greenhouse
+Looks at the effects of various gases on average global temperature. Analysis in R and SAS, with unofficial report in LaTeX.
