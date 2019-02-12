@@ -30,3 +30,6 @@ Uses Scottish hill racing (fell running) data to look at influential observation
 
 #### Greenhouse
 Looks at the effects of various gases on average global temperature. Analysis in R and SAS, with unofficial report in LaTeX.
+
+#### Arches
+Predictions of visitors to Arches National Park, using a seasonal ARIMA model
