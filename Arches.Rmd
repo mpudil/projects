@@ -1,0 +1,211 @@
+---
+title: "Arches"
+author: "Mitchell Pudil"
+date: "1/15/2018"
+output: word_document
+---
+
+```{r}
+#Title	Bookmark	
+#Arches NP	Bookmark this report: #https://irma.nps.gov/Stats/SSRSReports/Park%20Specific%20Reports/Annual%20Park%20Recreation%20Visitation%20(1904%20-%20Last%20Calendar%20Year)
+
+Arches <- read.csv(header = TRUE, text = '	
+Year,RecreationVisitors,TotalRecreationVisitors
+1929,"500","32,577,956"
+1930,"400","32,577,956"
+1931,"405","32,577,956"
+1932,"480","32,577,956"
+1933,"425","32,577,956"
+1934,"275","32,577,956"
+1935,"300","32,577,956"
+1936,"400","32,577,956"
+1937,"1,000","32,577,956"
+1938,"1,448","32,577,956"
+1939,"1,775","32,577,956"
+1940,"2,512","32,577,956"
+1941,"3,737","32,577,956"
+1942,"1,205","32,577,956"
+1943,"776","32,577,956"
+1944,"642","32,577,956"
+1945,"682","32,577,956"
+1946,"2,301","32,577,956"
+1947,"5,028","32,577,956"
+1948,"8,870","32,577,956"
+1949,"13,270","32,577,956"
+1950,"16,257","32,577,956"
+1951,"18,603","32,577,956"
+1952,"28,683","32,577,956"
+1953,"30,853","32,577,956"
+1954,"31,300","32,577,956"
+1955,"31,800","32,577,956"
+1956,"28,500","32,577,956"
+1957,"25,400","32,577,956"
+1958,"40,100","32,577,956"
+1959,"59,800","32,577,956"
+1960,"71,600","32,577,956"
+1961,"90,700","32,577,956"
+1962,"105,700","32,577,956"
+1963,"118,200","32,577,956"
+1964,"99,700","32,577,956"
+1965,"143,900","32,577,956"
+1966,"128,000","32,577,956"
+1967,"120,300","32,577,956"
+1968,"135,600","32,577,956"
+1969,"162,600","32,577,956"
+1970,"178,500","32,577,956"
+1971,"202,100","32,577,956"
+1972,"225,128","32,577,956"
+1973,"274,900","32,577,956"
+1974,"166,900","32,577,956"
+1975,"236,100","32,577,956"
+1976,"294,800","32,577,956"
+1977,"313,400","32,577,956"
+1978,"326,948","32,577,956"
+1979,"269,840","32,577,956"
+1980,"290,519","32,577,956"
+1981,"326,508","32,577,956"
+1982,"339,415","32,577,956"
+1983,"287,875","32,577,956"
+1984,"345,180","32,577,956"
+1985,"363,464","32,577,956"
+1986,"419,444","32,577,956"
+1987,"468,916","32,577,956"
+1988,"520,455","32,577,956"
+1989,"555,809","32,577,956"
+1990,"620,719","32,577,956"
+1991,"705,882","32,577,956"
+1992,"799,831","32,577,956"
+1993,"773,678","32,577,956"
+1994,"777,178","32,577,956"
+1995,"859,374","32,577,956"
+1996,"856,016","32,577,956"
+1997,"858,525","32,577,956"
+1998,"837,161","32,577,956"
+1999,"869,980","32,577,956"
+2000,"786,429","32,577,956"
+2001,"754,026","32,577,956"
+2002,"769,672","32,577,956"
+2003,"757,781","32,577,956"
+2004,"733,131","32,577,956"
+2005,"781,670","32,577,956"
+2006,"833,049","32,577,956"
+2007,"860,181","32,577,956"
+2008,"928,795","32,577,956"
+2009,"996,312","32,577,956"
+2010,"1,014,405","32,577,956"
+2011,"1,040,758","32,577,956"
+2012,"1,070,577","32,577,956"
+2013,"1,082,866","32,577,956"
+2014,"1,284,767","32,577,956"
+2015,"1,399,247","32,577,956"
+2016,"1,585,718","32,577,956"
+')
+```
+
+Create data frame 
+```{r}
+setwd("~/Desktop/Stat_330/Data/Time_Series/Class/Participation_2/Arches")
+arches <- read.csv("Arches.csv", header=FALSE)
+arches2 <- arches[-c(1:3), -c(3)]
+colnames(arches2)[1:2] <- c("Year", "RecreationVisitors")
+arches2$RecreationVisitors <- as.numeric(gsub(',','',arches2$RecreationVisitors))
+arches2$RecreationVisitors <- arches2$RecreationVisitors/10^6
+arches2$Year <- as.numeric(arches2$Year)
+arches2$Year <- 1928 + arches2$Year
+
+```
+
+
+```{r}
+plot(RecreationVisitors~Year, data=arches2, type='b', main="Arches NP Annual Recreation Visitors", xlab="Year", ylab="Recreation Visitors (in millions)")
+```
+This looks like a multiplicative effect model. Since we want additive, we must take the log of the number of recreation visitors.
+
+```{r}
+
+arches2$logvisitors <- log(arches2$RecreationVisitors)
+plot(logvisitors~Year, data=arches2, type='b', main="Arches NP Annual Recreation Visitors", xlab="Year", ylab="Log Recreation Visitors")
+
+```
+
+
+It is now appropriate to filter to the recent past. Because various changes such as war and improvement of technology affected estimates in the past, changing the model to fit only the recent past improves agreement with the constant mean change assumption. Also, by doing this, we are also able to reflect the recent past (starting at about 1970)
+
+
+
+```{r}
+arches1970 <- subset(arches2, Year>1970)
+
+plot(logvisitors~Year, data=arches1970, type='b', xlab="Year", ylab=" Log Recreation Visitors (in millions)", main="Recreation Visitors in Arches NP", col="blue")    
+
+
+```
+
+The relationship looks more additive.
+
+```{r}
+install.packages("astsa")
+library(astsa)
+```
+
+Assumption appears to hold. Continue to the actual prediction using ARIMA(1,1,1)
+
+Estimate ARIMA(1,1,1)
+
+
+Note: mu hat is "constant", phi hat is "ar1", theta hat is "ma1"
+```{r}
+
+arches1970.out <- sarima(arches1970$logvisitors,1,1,1)
+summary(arches1970.out)
+arches1970.out
+
+``````
+
+DON'T worry about graphs
+
+Compute predictions for next 5 years
+
+```{r}
+arches1970.future <- sarima.for(arches1970$logvisitors,n.ahead=5,1,1,1)
+
+```
+
+Compute 95% prediction intervals
+
+```{r}
+
+arches1970.L <- arches1970.future$pred - qnorm(0.975) * arches1970.future$se
+arches1970.U <- arches1970.future$pred +  qnorm(0.975) * arches1970.future$se
+
+```
+
+Table of un-transformed predictions for next 5 years
+
+```{r}
+arches1970.yhat <- exp(arches1970.future$pred)
+arches1970.yhat.L <- exp(arches1970.L)
+arches1970.yhat.U <- exp(arches1970.U)
+
+arches1970y <- cbind(arches1970.yhat, arches1970.yhat.L, arches1970.yhat.U)
+arches1970y
+
+```
+
+Create a publication quality graphic. NOT the graph that comes from sarima.for ... "good-ish" but can do better!
+
+Overlay the three features: past data, prediction, prediction intervals
+Balance the graph area so attention drawn to predictions
+
+
+```{r}
+plot(RecreationVisitors~Year,data=arches2,type="b",main="Number of Visitors to Arches National Park",ylab="Arches NP Annual Visitors (in millions)", xlim=c(1985,2022),ylim=c(0,3))
+lines(2017:2021,arches1970.yhat,col="steel blue",type="b",pch=19)
+lines(2017:2021,arches1970.yhat.L,col="steel blue",lty=2)
+lines(2017:2021,arches1970.yhat.U,col="steel blue",lty=2)
+
+```
+
+
+
+
