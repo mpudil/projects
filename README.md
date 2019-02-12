@@ -26,4 +26,4 @@ Used a glm model robust to heteroskedasticity to determine how much revenue a mo
 Uses a glm model robust to heteroskedasticity along with cross-validation to model and predict the amount of money an individual will spend eating out given income.
 
 #### ScottishHills
-Uses Scottish hill racing (fell running) data to look at influential observations and outliers in data. Includes unofficial report in LaTeX. 
+Uses Scottish hill racing (fell running) data to look at influential observations and outliers in data. Coded in R and in SAS. Includes unofficial report in LaTeX. 
