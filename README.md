@@ -23,3 +23,5 @@ A look into how various factors such as mother's age, race, and gestational age 
 Used a glm model robust to heteroskedasticity to determine how much revenue a movie studio should expect to receive for each dollar of production budget invested in a film. Also looked at if higher production budget films are more variable in the domestic gross and hat films under vs. overperformed domestically relative to their predicted domestic gross. Also used a Monte Carlo simulation to run a cross-validation of the heterogeneous MLR.
 
 
+### FoodExpenditures.R
+Uses a glm model robust to heteroskedasticity along with cross-validation to model and predict the amount of money an individual will spend eating out given income.
