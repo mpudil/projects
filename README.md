@@ -1,5 +1,5 @@
 # Statistics Research Projects
-These are other research projects I have worked on as a statisics and economics double major at BYU. 
+These are other research projects I have worked on as a statisics and economics double major at BYU. The code in this repository is written in R and SAS.
 
 
 #### Arches
