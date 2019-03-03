@@ -36,6 +36,9 @@ Used a glm model robust to heteroskedasticity to determine how much revenue a mo
 #### ScottishHills
 Uses Scottish hill racing (fell running) data to look at influential observations and outliers in data. Coded in R and in SAS. Includes unofficial report in LaTeX. 
 
+#### Statistics Pedagogy
+Group project (one other) to determine the relevance of homework, quizzes, and midterms on average student grade in introductory statistics using a GLS model robust to heteroskedasticity.
+
 #### STEM.R:
 Determines the probability of switching from a STEM major, using R. 
 
