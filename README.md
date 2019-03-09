@@ -1,6 +1,10 @@
 # Statistics Research Projects
 These are other research projects I have worked on as a statisics and economics double major at BYU. The code in this repository is written in R and SAS.
 
+#### Age-Related Macular Degeneration (ARMD) Analysis
+Uses a GLS model which accounts for within-subject correlation to determine (1)if patients on the 
+interferon-alpha treatment have a significantly higher vision score after a year than those not on the treatment,
+(2) if the treatment stops vision loss over time, and (3) if patients on/off the drug with a baseline of 29 are at risk of going legally blind. Optimization techniques also explored using the optim() function. 
 
 #### Arches
 Predictions of visitors to Arches National Park, using a seasonal ARIMA model
