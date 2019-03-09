@@ -24,7 +24,7 @@ Process also completed in R.
 Uses a glm model robust to heteroskedasticity along with cross-validation to model and predict the amount of money an individual will spend eating out given income.
 
 #### GOT.R
-Time series analysis of Game of Thrones data to predict viewership of future seasons. Employs a SARIMA(2,0,0,1,1)\_10 model with cross-validation.
+Time series analysis of Game of Thrones data to predict viewership of future seasons. Employs a SARIMA(2,0,0,0,1,1)\_10 model with cross-validation.
 
 
 #### Grades:
