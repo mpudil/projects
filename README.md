@@ -11,6 +11,9 @@ Predictions of visitors to Arches National Park, using a seasonal ARIMA model
 
 A look into how various factors such as mother's age, race, and gestational age affects the birthweight of a child, with a focus on showing the validity of multiple regression though K-S tests, Breusch-Pagan, and Monte Carlo Cross Validation. 
 
+#### BYUTV
+Use of SAS and Proc SQL to clean BYU TV viewership data.
+
 #### Climate Analysis
 
 Uses SARIMA model to predict temperature anomalies in the next few years.
