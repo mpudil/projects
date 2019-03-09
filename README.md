@@ -1,10 +1,8 @@
 # Statistics Research Projects
-These are other research projects I have worked on as a statisics and economics double major at BYU. The code in this repository is written in R and SAS.
+These are other research projects I have worked on as a statisics and economics double major at BYU. The code in this repository is written primarily in R, but includes SAS and Proc SQL commands as well.
 
-#### Age-Related Macular Degeneration (ARMD) Analysis
-Uses a GLS model which accounts for within-subject correlation to determine (1)if patients on the 
-interferon-alpha treatment have a significantly higher vision score after a year than those not on the treatment,
-(2) if the treatment stops vision loss over time, and (3) if patients on/off the drug with a baseline of 29 are at risk of going legally blind. Optimization techniques also explored using the optim() function. 
+#### armd.analysis.R
+Age-Related Macular Degeneration (ARMD) Analysis. Uses a GLS model which accounts for within-subject correlation to determine (1)if patients on the interferon-alpha treatment have a significantly higher vision score after a year than those not on the treatment,(2) if the treatment stops vision loss over time, and (3) if patients on/off the drug with a baseline of 29 are at risk of going legally blind. Optimization techniques also explored using the optim() function. 
 
 #### Arches
 Predictions of visitors to Arches National Park, using a seasonal ARIMA model
@@ -24,6 +22,9 @@ Process also completed in R.
 
 #### Food Expenditures
 Uses a glm model robust to heteroskedasticity along with cross-validation to model and predict the amount of money an individual will spend eating out given income.
+
+#### GOT.R
+Time series analysis of Game of Thrones data to predict viewership of future seasons. Employs a SARIMA(2,0,0,1,1)\_10 model with cross-validation.
 
 
 #### Grades:
