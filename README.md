@@ -14,6 +14,9 @@ A look into how various factors such as mother's age, race, and gestational age 
 #### BYUTV
 Use of SAS and Proc SQL to clean BYU TV viewership data.
 
+#### Cardio
+Using data from the Framingham, Massachusetts cohort health study, and accounting for within-subject correlation, I determine the effect of smoking, age, and other factors on risk of Tachycardia, and use the model to determine that smoking has a greater effect on heart rate (and therefore increased risk of Tachycardia) than aging 10 years (specifically from age 35 to age 45). 
+
 #### Climate Analysis
 
 Uses SARIMA model to predict temperature anomalies in the next few years.
