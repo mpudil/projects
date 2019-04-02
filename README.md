@@ -47,6 +47,11 @@ Looks at the effects of various gases on average global temperature. Analysis in
 #### Heart Disease
 Uses back, forward, and stepwise regression to determine the factors related to receiving cardiovascular  diseases.
 
+#### Land Analysis
+
+Uses spatial correlation and temperature data of surrounding data, along with land cover type, to fill in missing temperature data of nearby areas where cloud coverage prohibited signals from displaying temperature.
+
+
 
 #### Movies
 Used a GLS model robust to heteroskedasticity to determine how much revenue a movie studio should expect to receive for each dollar of production budget invested in a film. Also looked at if higher production budget films are more variable in the domestic gross and hat films under vs. overperformed domestically relative to their predicted domestic gross. Also used a Monte Carlo simulation to run a cross-validation of the heterogeneous MLR.
