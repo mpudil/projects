@@ -7,6 +7,9 @@ Uses a GLS model which accounts for within-subject correlation to determine (1)i
 #### Arches
 Predictions of visitors to Arches National Park, using a seasonal ARIMA model
 
+#### Avalanches
+Poisson regression performed in SAS and R to model the number of avalanches in Utah over several years.
+
 #### Birthweight Analysis
 
 A look into how various factors such as mother's age, race, and gestational age affects the birthweight of a child, with a focus on showing the validity of multiple regression though K-S tests, Breusch-Pagan, and Monte Carlo Cross Validation. 
