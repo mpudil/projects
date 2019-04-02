@@ -51,6 +51,11 @@ Uses back, forward, and stepwise regression to determine the factors related to 
 #### Movies
 Used a GLS model robust to heteroskedasticity to determine how much revenue a movie studio should expect to receive for each dollar of production budget invested in a film. Also looked at if higher production budget films are more variable in the domestic gross and hat films under vs. overperformed domestically relative to their predicted domestic gross. Also used a Monte Carlo simulation to run a cross-validation of the heterogeneous MLR.
 
+#### Particular Matter
+
+Uses a GLS model with AR(1) correlation structure to determine the activities that affect exposure to particular matter and the effectiveness of stationary devices in homes to detect such pollution. 
+
+
 #### Scottish Hills
 Uses Scottish hill racing (fell running) data to look at influential observations and outliers in data. Coded in R and in SAS. Includes unofficial report in LaTeX. 
 
