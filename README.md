@@ -58,7 +58,7 @@ Used a GLS model robust to heteroskedasticity to determine how much revenue a mo
 
 #### Particular Matter
 
-Uses a GLS model with AR(1) correlation structure to determine the activities that affect exposure to particular matter and the effectiveness of stationary devices in homes to detect such pollution. Includes 15+ page paper written in LaTex which explores the data, explains the models used, and the results.
+Uses a GLS model with AR(1) correlation structure to determine the activities that affect exposure to particulate matter and the effectiveness of stationary devices in homes to detect such pollution. Includes 15+ page paper written in LaTex which explores the data, explains the models used, and the results.
 
 
 #### Scottish Hills
