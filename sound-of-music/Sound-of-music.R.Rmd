@@ -1,0 +1,652 @@
+---
+title: "Appendix"
+author: "Mitchell Pudil"
+date: "11/30/2019"
+output: pdf_document
+---
+```{r, include=FALSE, echo=FALSE}
+library(pscl)
+library(MASS)
+library(arm)
+library(tidyverse)
+library(ggplot2)
+library(reshape2)
+library(visdat)
+library(ggpubr)
+library(car)
+library(lme4)
+library(RLRsim)
+library(lmerTest)
+library(LMERConvenienceFunctions)
+library(texreg)
+
+```
+
+
+```{r, include=FALSE, echo=FALSE}
+
+r.marg <- function(m) {
+  y <- m@frame[,1]
+  yhat <- model.matrix(m) %*% fixef(m)
+  return(y-yhat)
+}
+
+r.cond <- function(m) {residuals(m)}
+
+r.reff <- function(m) {r.marg(m) - r.cond(m)}
+
+Sigma.y <- function(m) {
+    rel.var.eta <- crossprod(getME(m,"Lambdat"))
+    Zt <- getME(m,"Zt")
+    var.epsilon <- sigma(m)^2
+
+    var.eta <- var.epsilon*(t(Zt) %*% rel.var.eta %*% Zt)
+    sI <- var.epsilon * Diagonal(length(getME(m,"y")))
+    var.y <- var.eta + sI
+
+    return(var.y)
+}
+
+
+r.chol <- function(m) {
+
+    var.y <- Sigma.y(m)
+
+    S <- chol(var.y)
+
+    resid.chol <- (solve(t(S))%*%r.marg(m))@x
+
+    return(resid.chol)
+}
+
+r.stnd <- function(m) {
+
+    var.y <- Sigma.y(m)
+
+    SDs <- diag(sqrt(diag(var.y)))
+
+    resid.stnd <- solve(SDs)%*%r.marg(m)
+
+    return(resid.stnd)
+}
+
+
+# suitable fitted values to plot them against...
+# (you can plot them against other things as well...
+
+yhat.marg <- function(m) { model.matrix(m) %*% fixef(m) }
+
+yhat.cond <- function(m) {
+  y <- m@frame[,1]
+  y - r.cond(m)
+}
+
+yhat.reff <- function(m) { yhat.marg(m) + r.cond(m) }
+
+```
+
+
+```{r, include=FALSE, echo=FALSE}
+heatmapCreator <- function(df){
+  cormat <- cor(df)
+  melted_cormat <- melt(cormat)
+  
+  # Get lower triangle of the correlation matrix
+  get_lower_tri<-function(cormat){
+    cormat[upper.tri(cormat)] <- NA
+    return(cormat)
+  }
+  # Get upper triangle of the correlation matrix
+  get_upper_tri <- function(cormat){
+    cormat[lower.tri(cormat)]<- NA
+    return(cormat)
+  }
+  
+  upper_tri <- get_upper_tri(cormat)
+  
+  
+  
+  # Melt the correlation matrix
+  library(reshape2)
+  melted_cormat <- melt(upper_tri, na.rm = TRUE)
+  
+  
+  reorder_cormat <- function(cormat){
+    # Use correlation between variables as distance
+    dd <- as.dist((1-cormat)/2)
+    hc <- hclust(dd)
+    cormat <-cormat[hc$order, hc$order]
+  }
+  
+  # Reorder the correlation matrix
+  cormat <- reorder_cormat(cormat)
+  upper_tri <- get_upper_tri(cormat)
+  # Melt the correlation matrix
+  melted_cormat <- melt(upper_tri, na.rm = TRUE)
+  # Create a ggheatmap
+  ggheatmap <- ggplot(melted_cormat, aes(Var2, Var1, fill = value))+
+    geom_tile(color = "white")+
+    scale_fill_gradient2(low = "blue", high = "red", mid = "white", 
+                         midpoint = 0, limit = c(-1,1), space = "Lab", 
+                         name="Pearson\nCorrelation") +
+    theme_minimal()+ # minimal theme
+    theme(axis.text.x = element_text(angle = 45, vjust = 1, 
+                                     size = 12, hjust = 1))+
+    coord_fixed()
+  # Print the heatmap
+  
+  
+  ggheatmap + 
+    geom_text(aes(Var2, Var1, label = round(value,1), size=1), color = "black", size = 4) +
+    theme(
+      axis.title.x = element_blank(),
+      axis.title.y = element_blank(),
+      panel.grid.major = element_blank(),
+      panel.border = element_blank(),
+      panel.background = element_blank(),
+      axis.ticks = element_blank(),
+      legend.justification = c(1, 0),
+      legend.position = c(0.6, 0.7),
+      legend.direction = "horizontal")+
+    guides(fill = guide_colorbar(barwidth = 7, barheight = 1,
+                                 title.position = "top", title.hjust = 0.5))
+  
+  
+}
+```
+
+
+```{r, include=FALSE, echo=FALSE}
+setwd("C:/Users/Mitchell Pudil/Downloads/")
+ratings <- read.csv("ratings.csv")
+```
+
+
+\section{EDA and Variable Transformations}
+
+Let's begin by looking at the missing data
+```{r fig.align="left", echo=FALSE}
+vis_miss(ratings)
+```
+We notice there are several columns that have missing data. 
+
+A couple of the variables we will be using throughout the study are KnowRob and PachListen. However, both of these 
+variables have many missing data points. However, nobody has both missing. We can exploit these observations and
+fill in the missing data by the average of the levels in the other.
+
+First, determine the relationship between the two variables
+```{r}
+summary(lm(ratings$KnowRob ~ ratings$PachListen))
+summary(lm(ratings$PachListen ~ ratings$KnowRob))
+```
+
+Then fill in missing data
+
+```{r}
+for(i in 1:nrow(ratings)){
+  if(is.na(ratings$PachListen[i])) {
+    ratings$PachListen[i] <- round(4.43 + 0.114*ratings$KnowRob[i])
+  }
+  
+  if(is.na(ratings$KnowRob[i])) {
+    ratings$KnowRob[i] <- max(round(-0.5 + 0.28*ratings$PachListen[i]), 0)
+  }
+}
+
+
+```
+
+
+
+Plot Numeric Variables
+
+```{r}
+
+ratings[,-c(1:5, 11, 15, 17, 24, 25, 26)] %>%
+  keep(is.numeric) %>% 
+  gather() %>% 
+  ggplot(aes(value)) +
+    facet_wrap(~ key, scales = "free") +
+    geom_histogram()
+
+
+```
+
+
+OMSI Score and classical/popular outliers
+```{r}
+powerTransform(OMSI ~ 1, data=ratings) # Should use log in model
+ratings$binaryrob <- ifelse(ratings$KnowRob==5, 1, 0)
+ratings <- subset(ratings, Popular <= 10 & Classical <= 10)
+
+```
+
+
+
+```{r, echo=FALSE}
+
+icplot <- ggplot(ratings, aes(x=Instrument, y=Classical, 
+                              fill=as.factor(ifelse(Selfdeclare>2, "Yes", "No")))) + geom_boxplot() + theme_bw() +
+  theme(legend.position="bottom") + labs(fill= "Declared Musician")
+
+
+hcplot <- ggplot(ratings, aes(x=Harmony, y=Classical, 
+                              fill=as.factor(ifelse(Selfdeclare>2, "Yes", "No")))) + 
+  geom_boxplot() + theme_bw()+ theme(legend.position="bottom")+ labs(fill= "Declared Musician")
+
+
+vcplot <- ggplot(ratings, aes(x=Voice, y=Classical, 
+                              fill=as.factor(ifelse(Selfdeclare>2, "Yes", "No")))) +
+  geom_boxplot() + theme_bw()+ theme(legend.position="bottom")+ labs(fill= "Declared Musician")
+
+
+ggarrange(icplot, hcplot, vcplot, nrow=1, ncol=3)
+```
+
+```{r, echo=FALSE}
+
+icplotp <- ggplot(ratings, aes(x=Instrument, y=Popular, fill=Instrument)) + geom_boxplot() + theme_bw() + theme(legend.position="none")
+
+
+hcplotp <- ggplot(ratings, aes(x=Harmony, y=Popular, fill = Harmony)) + geom_boxplot() + theme_bw()+ theme(legend.position="none")
+
+
+vcplotp <- ggplot(ratings, aes(x=Voice, y=Popular, fill=Voice)) + geom_boxplot() + 
+  theme_bw()+ theme(legend.position="none")
+
+
+ggarrange(icplotp, hcplotp, vcplotp, nrow=1, ncol=3)
+
+
+```
+```{r, echo=FALSE}
+# Instrument x Popular
+icplot <- ggplot(ratings, aes(x=Instrument, y=Classical, fill=Instrument)) + 
+  geom_boxplot() + theme_bw() + theme(legend.position="none")
+
+# Harmony x Popular
+hcplot <- ggplot(ratings, aes(x=Harmony, y=Classical, fill = Harmony)) + 
+  geom_boxplot() + theme_bw()+ theme(legend.position="none")
+
+# Voice x Popular
+vcplot <- ggplot(ratings, aes(x=Voice, y=Classical, fill=Voice)) + 
+  geom_boxplot() + theme_bw()+ theme(legend.position="none")
+
+# Mixtures
+#ggplot(ratings, aes(x=Voice, y=Classical, fill=Instrument)) + geom_boxplot() + theme_bw()
+
+ggarrange(icplot, hcplot, vcplot, nrow=1, ncol=3)
+
+
+```
+
+More boxplots to back up classical model
+
+```{r, echo=FALSE}
+ggplot(ratings, aes(x=Harmony, y=Classical, fill=Voice)) + geom_boxplot() + 
+  theme_bw() + labs(fill= "Voice")
+
+```
+```{r, echo=FALSE}
+ratings2 <- na.omit(ratings[,-c(1, 11, 15, 17, 24, 25, 26)]) 
+ratings2$rob2 <- ifelse(ratings2$binaryrob==1, "Yes", "No")
+ggplot(ratings2, aes(x=Harmony, y=Classical, fill=as.factor(rob2))) + 
+  geom_boxplot() + theme_bw() + labs(fill= "Familiar with Pachelbel's Rant")
+
+```
+
+```{r}
+
+ggplot(ratings2, aes(x=Voice, y=Classical, fill=Harmony)) + geom_boxplot() + 
+  theme_bw() + labs(fill= "Harmony")
+
+```
+
+
+
+\section{Classical Model}
+
+Note: The following is a simplified version of the steps that were taken to produce the final model.
+
+First, determine best linear model.
+
+```{r}
+
+
+lm1 <- lm(Classical ~ Instrument*Voice*Harmony, data=ratings2)
+
+step.model <- stepAIC(lm1, direction = "both", 
+                      trace = FALSE)
+step.model[["call"]][["formula"]]
+AIC(step.model)
+```
+Plot residuals
+
+```{r}
+par(mfrow=c(2,2))
+plot(step.model)
+```
+
+Determine if random intercept is important
+
+```{r}
+lmer.intercept.only <- lmer(Classical ~ Harmony*Voice + Instrument + 
+                              (1|Subject), data=ratings2, REML=FALSE,
+                            control = lmerControl(optimizer = "bobyqa"))
+
+anova(lmer.intercept.only, step.model)
+
+```
+Pr(>Chisq) << 0.05, and AIC much smaller with intercept model, so we will update model.
+
+Now compare with more random effects (note: no other covariates yet). 
+
+```{r, message=FALSE}
+lmer.voice <- lmer(Classical ~Instrument + Harmony*Voice + (1 | Subject) + 
+                     (0 + Voice|Subject), data=ratings2, REML=FALSE,
+                   control = lmerControl(optimizer= "bobyqa"))
+
+
+lmer.instrument <- lmer(Classical ~Instrument + Harmony*Voice + (1 | Subject) + 
+                          (0 + Instrument|Subject), 
+                        data=ratings2, REML=FALSE, control = lmerControl(optimizer= "bobyqa"))
+
+
+lmer.voice.instrument <- lmer(Classical ~ Instrument + Harmony*Voice + (1 | Subject) + 
+                                (0 + Voice | Subject) + 
+                                (0 + Instrument | Subject), data=ratings2, REML=FALSE,
+                              control = lmerControl(optimizer = "bobyqa"))
+
+lmer.voice.harmony <- lmer(Classical ~ Instrument + Harmony*Voice + (1 | Subject) + 
+                             (0 + Harmony | Subject) + 
+                             (0 + Voice | Subject), data=ratings2, REML=FALSE,control = lmerControl(optimizer = "bobyqa"))
+
+
+
+lmer.voice.instrument.harmony <- lmer(Classical ~ Instrument + Harmony*Voice + (1 | Subject) + 
+                                        (0 + Voice | Subject) + 
+                                      (0 + Instrument | Subject) + (0 + Harmony | Subject), data=ratings2, REML=FALSE,
+                                      control = lmerControl(optimizer = "bobyqa"))
+
+
+anova(lmer.voice, lmer.instrument, lmer.voice.instrument, lmer.voice.harmony, lmer.voice.instrument.harmony)
+
+```
+The lmer with the instrument random effect works best (note that some models were not shown because of non-convergence).
+
+
+Add covariates
+
+```{r, message=FALSE}
+class(ratings2$Instrument) <- class(ratings2$Harmony) <- class(ratings2$Voice) <- "factor"
+ratings2$musician <- ifelse(ratings2$Selfdeclare <= 2, 0, 1)
+#ratings2$binaryrob <- ifelse(ratings2$KnowRob == 5, 1, 0)
+
+lmer.harmony.full <- lmer(Classical ~ Harmony*Voice + Instrument + musician*Harmony + 
+                            musician*Voice + musician*Instrument + Harmony*KnowRob*PachListen + log(OMSI) + 
+                       PianoPlay + GuitarPlay + X16.minus.17 + ConsInstr + ConsNotes + ClsListen + X1990s2000s + 
+                         CollegeMusic + NoClass + APTheory + Composing
+                         + (1 | Subject) + (0 + Harmony | Subject), 
+                     data=ratings2, REML=FALSE, control = lmerControl(optimizer = "bobyqa"))
+
+```
+
+Stepwise regression to determine best model with covariates
+
+
+```{r, include = FALSE}
+
+step_fm <- step(lmer.harmony.full)
+final_fm <- get_model(step_fm)
+
+
+```
+
+```{r}
+# summary(final_fm)
+```
+
+Determine if we should change random effects
+
+```{r, message=FALSE}
+
+lmer.fe.int <- lmer(Classical ~ Harmony*KnowRob + Voice + Instrument + musician +  
+                            PianoPlay + X16.minus.17 + ConsNotes + (0 + Harmony | Subject) +  
+                            Harmony:Voice + Harmony:musician + Instrument:musician +
+                         (1 | Subject), data=ratings2, REML=FALSE, control = lmerControl(optimizer = "bobyqa"))
+
+
+
+
+lmer.fe.voice <- lmer(Classical ~ Harmony*KnowRob + Voice + Instrument + musician +  
+                            PianoPlay + X16.minus.17 + ConsNotes + 
+                            Harmony:Voice + Harmony:musician + Instrument:musician +
+                         (1 | Subject) + (0 + Voice | Subject), data=ratings2, REML=FALSE, 
+                         control = lmerControl(optimizer = "bobyqa"))
+
+
+lmer.fe.harm <- lmer(Classical ~ Harmony*KnowRob + Voice + Instrument + musician +  
+                            PianoPlay + X16.minus.17 + ConsNotes +   
+                            Harmony:Voice + Harmony:musician + Instrument:musician +
+                         (1 | Subject) + (0 + Harmony | Subject), data=ratings2, REML=FALSE, 
+                         control = lmerControl(optimizer = "bobyqa"))
+
+
+
+lmer.fe.voice.harm.inst <- lmer(Classical ~ Harmony*KnowRob + Voice + Instrument + musician +  
+                            PianoPlay + X16.minus.17 + ConsNotes + 
+                            Harmony:Voice + Harmony:musician + Instrument:musician +
+                         (1 | Subject) + (0 + Harmony | Subject) + (0 + Voice | Subject) + 
+                           (0 + Instrument | Subject), data=ratings2, REML=FALSE, 
+                         control = lmerControl(optimizer = "bobyqa"))
+
+```
+```{r}
+anova(lmer.fe.int, lmer.fe.voice, lmer.fe.harm, lmer.fe.voice.harm.inst)
+```
+
+It now appears that we should use voice, harmony, and instrument random effects.
+
+```{r}
+lmer.fe.voice.harm.inst 
+
+```
+
+Relevel Voice so we can compare contrary
+
+```{r, message=FALSE}
+#ratings3 <- within(ratings2, Voice <- relevel(Voice, ref = 2))
+
+final.classical.releveled <- lmer(Classical ~ Voice + Harmony*binaryrob+ Instrument + musician +  
+                            PianoPlay + X16.minus.17 + ConsNotes + 
+                            Harmony:Voice + Harmony:musician + Instrument:musician -1 +
+                         (1 | Subject) + (0 + Harmony | Subject) + (0 + Voice | Subject) + 
+                           (0 + Instrument | Subject), data=ratings2, REML=FALSE, 
+                         control = lmerControl(optimizer = "bobyqa"))
+
+summary(final.classical.releveled)
+```
+See paper for regression output.
+
+\subsection{Check errors for Classical Model}
+
+We'll start by looking at the binned residuals
+
+```{r}
+modelc <- final.classical.releveled
+binnedplot(fitted(modelc),resid(modelc))
+
+
+```
+It appears that the majority of the residuals are within the bin.
+
+Next, we look at marginal fitted values vs. residuals
+
+```{r}
+ggplot(mapping=aes(yhat.marg(modelc), r.marg(modelc))) + geom_point() +
+  labs(x="Marginal Predicted", y="Marginal Residuals") + theme_bw()
+
+```
+In the marginal models residuals plot above, we don't care about trends, but are more focused on
+the spread of the points. Therefore, the marginal residuals plot above looks good.
+
+
+Now we will look at the QQ plot for conditional residuals.
+```{r}
+
+qqnorm(r.cond(modelc))
+qqline(r.reff(modelc), col = "steelblue", lwd = 2)
+
+```
+
+And the QQ plot for the random effects
+```{r}
+qqnorm(r.reff(modelc))
+qqline(r.reff(modelc), col = "steelblue", lwd = 2)
+```
+
+Both QQ plots look linear, suggesting normality of residuals. 
+
+We now move to determining the popular ratings model.
+
+
+\section{Popular Ratings Model}
+
+We'll start by running a stepwise regression to determine the optimal fixed effects.
+```{r}
+
+lm.pop <- lm(Popular ~ Harmony*Voice + Instrument + musician*Harmony + musician*Voice + musician*Instrument +
+               Harmony*KnowRob*PachListen + log(OMSI) + PianoPlay + GuitarPlay + X16.minus.17 + ConsInstr + 
+               ConsNotes + ClsListen + X1990s2000s + CollegeMusic + NoClass + APTheory + Composing, data=ratings2)
+  
+step.model <- stepAIC(lm.pop, direction = "both", 
+                      trace = FALSE)
+# summary(step.model)
+
+
+```
+
+
+```{r}
+lmer.pop.int <- lmer(Popular ~ Harmony + Voice + Instrument + musician + KnowRob + 
+    PachListen + log(OMSI) + PianoPlay + GuitarPlay + X16.minus.17 + 
+    ConsInstr + ConsNotes + X1990s2000s + CollegeMusic + NoClass + 
+    APTheory + Composing + Harmony:musician + Instrument:musician + 
+    KnowRob:PachListen + (1 | Subject), data=ratings2, 
+                     control= lmerControl(optimizer = "bobyqa"), REML = FALSE)
+
+lmer.pop.harm <- lmer(Popular ~ Harmony + Voice + Instrument + musician + KnowRob + 
+    PachListen + log(OMSI) + PianoPlay + GuitarPlay + X16.minus.17 + 
+    ConsInstr + ConsNotes + X1990s2000s + CollegeMusic + NoClass + 
+    APTheory + Composing + Harmony:musician + Instrument:musician + 
+    KnowRob:PachListen + (1 | Subject) + (0 + Harmony | Subject), data=ratings2, 
+                     control= lmerControl(optimizer = "bobyqa"), REML = FALSE)
+
+
+lmer.pop.voice <- lmer(Popular ~ Harmony + Voice + Instrument + musician + KnowRob + 
+    PachListen + log(OMSI) + PianoPlay + GuitarPlay + X16.minus.17 + 
+    ConsInstr + ConsNotes + X1990s2000s + CollegeMusic + NoClass + 
+    APTheory + Composing + Harmony:musician + Instrument:musician + 
+    KnowRob:PachListen +  (1 | Subject) + (0 + Voice | Subject), data=ratings2, 
+                     control= lmerControl(optimizer = "bobyqa"), REML = FALSE)
+
+
+lmer.pop.harm.inst <- lmer(Popular ~ Harmony + Voice + Instrument + musician + KnowRob + 
+    PachListen + log(OMSI) + PianoPlay + GuitarPlay + X16.minus.17 + 
+    ConsInstr + ConsNotes + X1990s2000s + CollegeMusic + NoClass + 
+    APTheory + Composing + Harmony:musician + Instrument:musician + 
+    KnowRob:PachListen + (1 | Subject) + (0 + Harmony | Subject) +
+                       (0 + Instrument | Subject), data=ratings2, 
+                     control= lmerControl(optimizer = "bobyqa"), REML = FALSE)
+
+
+lmer.pop.harm.voice <- lmer(Popular ~ Harmony + Voice + Instrument + musician + KnowRob + 
+    PachListen + log(OMSI) + PianoPlay + GuitarPlay + X16.minus.17 + 
+    ConsInstr + ConsNotes + X1990s2000s + CollegeMusic + NoClass + 
+    APTheory + Composing + Harmony:musician + Instrument:musician + 
+    KnowRob:PachListen + 
+                       (0 + Voice | Subject), data=ratings2, 
+                     control= lmerControl(optimizer = "bobyqa"), REML = FALSE)
+
+lmer.pop.voice.inst <- lmer(Popular ~ Harmony + Voice + Instrument + musician + KnowRob + 
+    PachListen + log(OMSI) + PianoPlay + GuitarPlay + X16.minus.17 + 
+    ConsInstr + ConsNotes + X1990s2000s + CollegeMusic + NoClass + 
+    APTheory + Composing + Harmony:musician + Instrument:musician + 
+    KnowRob:PachListen + 
+                       (0 + Instrument | Subject), data=ratings2, 
+                     control= lmerControl(optimizer = "bobyqa"), REML = FALSE)
+
+
+
+```
+There were a few models that failed to converge, but we can still compare the models that did converge.
+
+```{r}
+anova(lmer.pop.int, lmer.pop.harm, lmer.pop.voice, lmer.pop.harm.inst, lmer.pop.harm.voice, lmer.pop.voice.inst)
+```
+The smallest BIC overall appears to be the one where we used voice and instrument random effects. Let's do one more check with fixed effects to see if there are any more variables we should drop.
+
+```{r}
+step_fm <- step(lmer.pop.voice.inst)
+final_fm <- get_model(step_fm)
+# summary(final_fm)
+final_fm
+```
+
+The stepwise regression model suggests to only use the variables Harmony, Voice, musician, Instrument, and the interaction Harmony:musician. 
+
+Since adding back in Voice and Harmony random effects would cause negative eigenvalues, the final model then is:
+```{r, message=FALSE}
+lmer.pop.final <- lmer(Popular ~  Voice + Harmony*musician + Instrument -1 +
+                       (1 | Subject) + (0 + Voice | Subject) + (0 + Instrument | Subject), data=ratings2, 
+                     control= lmerControl(optimizer = "bobyqa"), REML = FALSE)
+
+summary(lmer.pop.final)
+```
+
+
+\subsection{Check errors for Popular Model}
+
+We'll start by looking at the binned residuals
+
+```{r}
+modelp <- lmer.pop.final
+binnedplot(fitted(modelp),resid(modelp))
+
+
+```
+It appears that the majority of the residuals are within the bin.
+
+Next, we look at marginal fitted values vs. residuals
+
+```{r}
+ggplot(mapping=aes(yhat.marg(modelp), r.marg(modelp))) + geom_point() +
+  labs(x="Marginal Predicted", y="Marginal Residuals") + theme_bw()
+
+```
+In the marginal models residuals plot above, we don't care about trends, but are more focused on
+the spread of the points. Therefore, the marginal residuals plot above looks good.
+
+
+Now we will look at the QQ plot for conditional residuals.
+```{r}
+
+qqnorm(r.cond(modelp))
+qqline(r.reff(modelp), col = "steelblue", lwd = 2)
+
+```
+
+And the QQ plot for the random effects
+```{r}
+qqnorm(r.reff(modelp))
+qqline(r.reff(modelp), col = "steelblue", lwd = 2)
+```
+
+Both QQ plots look linear, suggesting normality of residuals. 
+
+
+
+
+
+
+
