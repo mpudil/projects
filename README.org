@@ -63,7 +63,7 @@ groupings that match key course themes. These are:
 
     | Project          | Language(s) | Method(s) | Description                                                           |
     |---------------------+--------+-----------------------------------------------------------------------|
-    | [[file:Statistics-homeschooling][statistics-pedagogy]]  |  Stata | Logistic Regression, fixed effects | Determine effect of maternal education on odds of child being homeschooled (working paper) |
+    | [[file:Statistics-homeschooling][homeschooling]]  |  Stata | Logistic Regression, fixed effects | Determine effect of maternal education on odds of child being homeschooled (working paper) |
     | [[file:socioeconomics][socioeconomics-pci]]  |  R | Linear Regression, feature engineering | Determine socioeconomic factors that affect per-capita income  |
     
         
