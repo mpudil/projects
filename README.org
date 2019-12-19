@@ -1,47 +1,28 @@
-#+TITLE: Problem Bank
+#+TITLE: Statistics and Economics Projects
 
 For an organized list of all assignments, with information and links, see the
 tables below.
 
 All the assignments are tagged with relevant topical designations to
-help you find problems of interest. /Every/ assignment is listed in the
-=All/= directory above, and the other subdirectories contain links to
-assignments with a particular tag. Five special tags (with
-capitalized names) represent broad groupings that match key course
-themes. These are:
+help you find problems of interest. Five special tags represent broad 
+groupings that match key course themes. These are:
 
-1. =Foundations/=, basic practice for learning and review of programming
-   fundamentals and background concepts
-2. =Tools-Practices/=, about tools and best practices (Git, the shell, testing,
-   style...)
-3. =Algorithms-DataStructures/=, about algorithms and data structures.
-4. =Data-Methods/=, about specific data analytic methods, like text analysis, SQL,
-   clustering, high-dimensional data...
-5. =Computing-Concepts/=, on programming concepts like recursion, object-oriented
-   programming, functional programming, etc.
+1. =Statistical Computing= algorithms, data structures, recursion, object-oriented programming
+2. =Statistical Modeling=, misc. projects involving statistical modeling
+3. =Machine Learning= Machine learning projects including dimensionality reduction, unsupervised, and supervised learning
+4. =Economics Projects=, various economics projects from my BYU undergrad
+5. =SQL= SQL Practices
 
-You should aim to complete several assignments in each of categories 2 through 5.
+*** Statistical Computing
 
-*Instructions for starting and submitting assignments* are on the [[https://36-750.github.io/course-info/assignment-instructions/][course website]].
-
-** Assignment List
-
-   (Vignettes consist of multiple exercises, each submitted separately. Each
-   exercise can have a different number of points, so these are marked "/v/".)
-
-*** Foundations
-
-    Work on problems in the =Foundations= category only if you need extra practice
-    or review to feel comfortable with programming.
-
-    | Assignment | Points | Description                                 |
+    | Assignment | Language(s) | Description                                 |
     |------------+--------+---------------------------------------------|
-    | [[file:All/loopy.pdf][loopy]]      |      1 | Simple looping practice                     |
+    | [[file:tree-builder][tree-builder]]      |      R | Use recursion to build binary classification tree                     |
     | [[file:All/dos2unix.pdf][dos2unix]]   |      1 | Convert line endings; learn simple file I/O |
 
 *** Tools and Practices
 
-    | Assignment       | Points | Description                                           |
+    | Assignment       | Language(s) | Description                                           |
     |------------------+--------+-------------------------------------------------------|
     | [[file:All/code-review.pdf][code-review]]      |      2 | Review code with constructive feedback                |
     | [[file:All/mean-assert.pdf][mean-assert]]      |      2 | Write assertions to detect problems                   |
