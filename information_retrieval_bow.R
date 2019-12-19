@@ -86,7 +86,7 @@ analyzeCorpus <- function(filenames) {
   merged_dfs <- data.frame(rbindlist(sep_dfs, fill=TRUE))
   merged_dfs[is.na(merged_dfs)] <- 0
   rownames(merged_dfs) <- basename(filenames)
-                    
+  
   return(merged_dfs)
 }
 
@@ -135,8 +135,9 @@ maxDistance <- function(vec1, vec2){
 distMatrix <- function(corpusmatrix, metric="euclidean") {
   assertthat::assert_that(min(corpusmatrix) >= 0)
   if(metric=="euclidean"){
-  m <- sapply(1:nrow(corpusmatrix), function(i) sapply(1:nrow(corpusmatrix), 
-                                                  function(j) eucDistance(corpusmatrix[i,], corpusmatrix[j,])))
+    
+    m <- sapply(1:nrow(corpusmatrix), function(i) sapply(1:nrow(corpusmatrix), 
+                                                         function(j) eucDistance(corpusmatrix[i,], corpusmatrix[j,])))
   }
   
   if(metric == "max"){
@@ -145,4 +146,51 @@ distMatrix <- function(corpusmatrix, metric="euclidean") {
   }
   
   return(m)
+}
+
+
+# Part 4 Function ---------------------------------------------------------
+
+
+#' Finds most similar document of a corpus 
+#' @param doc_bow Bag of words df for document of interest
+#' @param corp_bow Bag of words df for all corpus 
+#' @param k desired number of most similar documents in corpus
+#' @return k closest files of corpus
+
+IrSearch <- function(doc_bow, corp_bow, k=1, method="euclidean") {
+  assertthat::assert_that(k > 0 && k <= nrow(corp_bow))
+  assertthat::assert_that(method=="euclidean" || method=="maximum")
+  assertthat::assert_that(is.data.frame(doc_bow) && is.data.frame(corp_bow))
+  
+  # Take doc_bow out of corp_bow
+  docrow <- ifelse(rownames(doc_bow) %in% rownames(corp_bow), 
+                   which(rownames(corp_bow)==rownames(doc_bow)), NA)
+  
+  if(!is.na(docrow)) {
+    corp_bow <- corp_bow[-docrow,]
+  }
+  
+  # Create df for capturing results
+  similarities <- data.frame(matrix(ncol=2, nrow=nrow(corp_bow), data = NA))
+  colnames(similarities) <- c("document", "distance")
+  similarities$document <- rownames(corp_bow)
+  
+  # Compare doc_bow with files from corp_bow
+  for(i in 1:nrow(corp_bow)) {
+    l <- list(doc_bow, corp_bow[i,])
+    docs_to_compare <- data.frame(rbindlist(l, fill=TRUE))
+    docs_to_compare <- docs_to_compare[,apply(docs_to_compare,2,function(x) !all(x==0 | is.na(x)))]
+    docs_to_compare[is.na(docs_to_compare)] <- 0
+    
+    if(method=="euclidean") {
+      similarities$distance[i] <- eucDistance(docs_to_compare[1,], docs_to_compare[2,])
+    } else {
+      similarities$distance[i] <- maxDistance(docs_to_compare[1,], docs_to_compare[2,])
+    }
+    
+  }
+  
+  similarities_ordered <- similarities[order(similarities$distance, decreasing=TRUE),]
+  similarities_ordered[1:k,1]
 }
