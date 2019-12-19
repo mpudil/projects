@@ -1,0 +1,99 @@
+Dealing with CRUD part 3: SQL Code
+For associated results, see the results3 file
+
+
+1.
+
+SELECT firstname, 
+       lastname, 
+       pts 
+FROM   stats2015_16 AS s 
+       JOIN players p 
+         ON s.player = p.id 
+WHERE  minutes >= 8 
+ORDER  BY pts DESC 
+LIMIT  25; 
+
+
+2. 
+
+SELECT DISTINCT team, 
+                Avg(pts) 
+                  OVER ( 
+                    partition BY team) AS avgpts 
+FROM   stats2015_16 
+ORDER  BY avgpts DESC; 
+
+
+
+
+3. 
+
+
+SELECT firstname, 
+       lastname, 
+       s.minutes, 
+       s.ewa 
+FROM   stats2015_16 AS s 
+       JOIN players p 
+         ON s.player = p.id 
+WHERE  ewa < 0 
+ORDER  BY minutes DESC 
+LIMIT  5; 
+
+
+4. 
+
+SELECT firstname, 
+       lastname, 
+       position, 
+       pts, 
+       Avg(pts) 
+         OVER ( 
+           partition BY position) AS pospoints 
+FROM   stats2015_16 AS s 
+       JOIN players p 
+         ON s.player = p.id 
+ORDER  BY pts DESC; 
+
+ 
+
+5. 
+
+SELECT firstname, 
+       lastname, 
+       fgpct, 
+       ftpct, 
+       s.tppct 
+FROM   stats2015_16 AS s 
+       JOIN players p 
+         ON s.id = p.id 
+WHERE  fgpct >= 50 
+       AND ftpct >= 90 
+       AND tppct >= 45; 
+
+
+6.
+
+
+WITH turnrat 
+     AS (SELECT tovr, 
+                Round(( tov * 100 ) / ( fga + ( fta * 0.44 ) + ast + tov ), 2) 
+                AS 
+                tovr2 
+         FROM   stats2015_16 
+         WHERE  fga + ( fta * 0.44 ) + ast + tov <> 0) 
+SELECT tovr, 
+       tovr2, 
+       Abs(tovr2 - tovr) AS diff 
+FROM   turnrat; 
+
+
+
+
+
+
+
+
+
+

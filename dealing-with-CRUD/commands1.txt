@@ -1,0 +1,125 @@
+# Using R code to move the table to the database
+dbWriteTable(con, name = "teams", value = teams, field.types = c(Id = "char(3) primary key",
+                                                                 Location = "text",
+                                                                 Name = "text",
+                                                                 Division = "text",
+                                                                 Conference = "text"), row.names = FALSE)
+
+
+
+# Postgresql commands used:
+CREATE TABLE positions AS WITH pvals AS 
+(
+   SELECT
+      id,
+      firstname,
+      lastname,
+      gp*minutes AS total_minutes,
+      per,
+      67*va / (gp*minutes) AS denom,
+      round(per - 67*va / (gp*minutes), 1) AS prl 
+   FROM
+      more_player_stats
+)
+SELECT
+   * 
+FROM
+   pvals;
+ALTER TABLE positions ADD COLUMN pos text;
+UPDATE
+   positions 
+SET
+   pos = 'power forward' 
+WHERE
+   prl <= 11.6 
+   AND prl >= 11.4;
+UPDATE
+   positions 
+SET
+   pos = 'point guard' 
+WHERE
+   prl <= 11.1 
+   AND prl >= 10.9;
+UPDATE
+   positions 
+SET
+   pos = 'center' 
+WHERE
+   prl <= 10.7 
+   AND prl >= 10.6;
+UPDATE
+   positions 
+SET
+   pos = 'shooting guard' 
+WHERE
+   prl <= 10.5 
+   AND prl >= 10.4;
+UPDATE
+   positions 
+SET
+   pos = 'NULL' 
+WHERE
+   prl NOT IN 
+   (
+      10.4,
+      10.5,
+      10.6,
+      10.7,
+      10.9,
+      11,
+      11.1,
+      11.4,
+      11.5,
+      11.6
+   )
+;
+CREATE TABLE heightonly AS 
+SELECT
+   split_part(height, '-', 1) ft,
+   split_part(height, '-', 2) inches,
+   id 
+FROM
+   player_bios;
+ALTER TABLE heightonly ALTER COLUMN ft type INTEGER USING ft::INTEGER;
+ALTER TABLE heightonly ALTER COLUMN inches type INTEGER USING inches::INTEGER;
+ALTER TABLE heightonly ADD COLUMN totalheight INTEGER;
+UPDATE
+   heightonly 
+SET
+   totalheight = ft*12 + inches;
+UPDATE
+   player_bios t2 
+SET
+   height = t1.totalheight 
+FROM
+   height t1 
+WHERE
+   t2.id = t1.id;
+ALTER TABLE player_bios ADD COLUMN POSITION text;
+UPDATE
+   player_bios t2 
+SET
+   POSITION = t1.pos 
+FROM
+   positions t1 
+WHERE
+   t2.id = t1.id;
+ALTER TABLE player_bios ALTER COLUMN height type INTEGER USING height::INTEGER;
+SELECT
+   POSITION,
+   AVG(height) 
+FROM
+   player_bios 
+GROUP BY
+   POSITION;
+Observations:
+
+The average height, in inches, of basketball positions are:
+
+power forward   | 79.38
+ shooting guard | 78.87
+ center         | 79.21
+ point guard    | 79.43
+
+So point guards are the tallest, and shooring gruards are the shortest, but not by much.
+The average height in all positions are still really tall (6'7" average, more or less)

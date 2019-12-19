@@ -1,0 +1,61 @@
+The file player_stats.sql contains commands that when executed
+creates three tables:
+
+  + player_stats
+  + player_bios
+  + more_player_stats
+
+These data give statistics about players active in the National Basketball
+Association (NBA) 2015-16 season.    
+
+The first two tables were derived from data made available
+on NBA.com, specifically at http://stats.nba.com/league/player/#!/.
+
+The last table was derived from data from ESPN.com,
+specifically at http://insider.espn.com/nba/hollinger/statistics/_/page/1/qualified/false.
+
+
+The columns in these tables have the following meanings
+  + gp: Games played (out of 82 games in the regular season)
+  + wins: Number of games won while this player played
+  + losses: Number of games lost while this player played
+  + minutes: Average minutes per game played
+  + fgm: Shots made from the field ("field goals made")
+  + fga: Shots attempted from the field ("field goals attempted")
+  + fgpct: Field goal percentage over whole season
+  + tpm: Three-point shots made, average per game
+  + tpa: Three-point shots attempted, average per game
+  + tppct: Three-point shooting percentage over whole season
+  + ftm: Free throws (one-point) made, average per game
+  + fta: Free throws (one-point) attempted, average per game
+  + ftpct: Free throw percentage, over whole season
+  + oreb: offensive rebounds per game on average
+  + dreb: defensive rebounds per game on average
+  + reb: rebounds per game on average
+  + ast: assists per game on average
+  + tov: turnovers per game on average
+  + stl: steals per game on average
+  + blk: blocks per game on average
+  + pf: personal fouls per game on average
+  + dd2: number of double-doubles during the season
+  + td3: number of triple-doubles during the season
+  + pts: average points per game
+  + plusminus: point differential comparing when the player is on or off the court
+  + netrtg: difference between a players offensive and defensive ratings
+  + oreb_pct: offensive rebounding percentage
+  + dreb_pct: defensive rebounding percentage
+  + reb_pct: rebounding percentage
+  + usg_psg: usage rate, see usg below
+  + ts_pct: true-shooting percentage (see tspct)
+  + ast_pct: assist rate, see astr below  
+  + tspct: True Shooting Percentage - what a player's shooting percentage would be if we accounted for free throws and 3-pointers. True Shooting Percentage = Total points / [(FGA + (0.44 x FTA)]
+  + astr: Assist Ratio - the percentage of a player's possessions that ends in an assist. Assist Ratio = (Assists x 100) divided by [(FGA + (FTA x 0.44) + Assists + Turnovers]
+  + tovr: Turnover Ratio - the percentage of a player's possessions that end in a turnover. Turnover Ratio = (Turnover x 100) divided by [(FGA + (FTA x 0.44) + Assists + Turnovers]
+  + usg: Usage Rate - the number of possessions a player uses per 40 minutes. Usage Rate = {[FGA + (FT Att. x 0.44) + (Ast x 0.33) + TO] x 40 x League Pace} divided by (Minutes x Team Pace)
+  + orr: Offensive rebound rate
+  + drr: Defensive rebound rate
+  + rebr: Rebound Rate - the percentage of missed shots that a player rebounds. Rebound Rate = (100 x (Rebounds x Team Minutes)) divided by [Player Minutes x (Team Rebounds + Opponent Rebounds)]
+  + per: Player Efficiency Rating is the overall rating of a player's per-minute statistical production. The league average is 15.00 every season.
+  + va: Value Added - the estimated number of points a player adds to a team’s season total above what a 'replacement player' (for instance, the 12th man on the roster) would produce. Value Added = ([Minutes * (PER - PRL)] / 67). PRL (Position Replacement Level) = 11.5 for power forwards, 11.0 for point guards, 10.6 for centers, 10.5 for shooting guards and small forwards
+  + ewa: Estimated Wins Added - Value Added divided by 30, giving the estimated number of wins a player adds to a team’s season total above what a 'replacement player' would produce.
+

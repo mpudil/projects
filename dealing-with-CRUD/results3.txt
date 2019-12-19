@@ -1,0 +1,127 @@
+Dealing With CRUD Part 3:
+Results from SQL Commands
+
+1.
+
+Firstname    Lastname    pts
+----------+-----------+------
+ Stephen   | Curry     | 30.1
+ James     | Harden    | 29.0
+ Kevin     | Durant    | 28.2
+ DeMarcus  | Cousins   | 26.9
+ LeBron    | James     | 25.3
+ Damian    | Lillard   | 25.1
+ Anthony   | Davis     | 24.3
+ DeMar     | DeRozan   | 23.5
+ Russell   | Westbrook | 23.5
+ Paul      | George    | 23.1
+ Isaiah    | Thomas    | 22.2
+ Klay      | Thompson  | 22.1
+ Carmelo   | Anthony   | 21.8
+ Blake     | Griffin   | 21.4
+ Kawhi     | Leonard   | 21.2
+
+
+
+2. 
+
+
+team |  avgpts
+------+---------
+ MIA  | 9.81
+ SAC  | 9.32
+ NOP  | 8.99
+ PHI  | 8.99
+ CHI  | 8.98
+ WAS  | 8.82
+ GSW  | 8.81
+ PHX  | 8.77
+ DAL  | 8.59
+ CLE  | 8.58
+ CHA  | 8.55
+ HOU  | 8.53
+ LAC  | 8.53
+ OKC  | 8.49
+
+
+
+3. 
+
+
+ firstname | lastname | minutes | ewa
+-----------+----------+---------+------
+ Emmanuel  | Mudiay   |    30.4 | -1.1
+ Kyle      | Korver   |    30.0 | -0.9
+ Justise   | Winslow  |    28.6 | -2.3
+ Hollis    | Thompson |    28.0 | -1.3
+ Dion      | Waiters  |    27.6 | -1.2
+
+
+
+4. 
+
+
+firstname   |     lastname     |    position    | pts  |  pospoints
+--------------+------------------+----------------+------+------------
+ Stephen      | Curry            | shooting guard | 30.1 | 8.24
+ James        | Harden           | center         | 29.0 | 8.51
+ Kevin        | Durant           | point guard    | 28.2 | 8.60
+ DeMarcus     | Cousins          | shooting guard | 26.9 | 8.24
+ LeBron       | James            | power forward  | 25.3 | 8.02
+ Damian       | Lillard          | center         | 25.1 | 8.51
+ Anthony      | Davis            | center         | 24.3 | 8.51
+ DeMar        | DeRozan          | shooting guard | 23.5 | 8.24
+ Russell      | Westbrook        | shooting guard | 23.5 | 8.24
+
+
+
+5. 
+
+
+ firstname | lastname | fgpct | ftpct | tppct
+-----------+----------+-------+-------+-------
+ Stephen   | Curry    |  50.4 |  90.8 |  45.4
+
+
+
+
+
+6. 
+
+
+ tovr | tovr2 | diff
+------+-------+------
+ 10.8 | 10.91 | 0.11
+  7.7 |  7.34 | 0.36
+ 13.2 | 13.66 | 0.46
+ 16.3 | 16.20 | 0.10
+  7.3 |  7.22 | 0.08
+  5.2 |  5.02 | 0.18
+ 11.5 | 11.69 | 0.19
+  2.5 |  3.16 | 0.66
+ 14.6 | 14.58 | 0.02
+ 10.0 |  9.77 | 0.23
+ 14.9 | 15.24 | 0.34
+  0.0 |  0.00 | 0.00
+ 12.6 | 12.53 | 0.07
+  7.2 |  7.26 | 0.06
+ 13.4 | 14.04 | 0.64
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
