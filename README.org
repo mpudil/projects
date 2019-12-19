@@ -50,7 +50,7 @@ groupings that match key course themes. These are:
     |-------------------+--------+-------------------------------------------------------------|
     | [[file:Stylometrics][stylometrics-book-mormon]] |  R | PCA, Random Forest | Determine distinguishability of authors in Book of Mormon
     | [[file:information-retrieval-bow][information-retrieval-bow]] |  R | NLP, PCA| Use bag of words to search and cluster text data |
-    | [[file:machine-learning/Costa_Rica_Poverty.py][poverty]] |  Python | Logistic Regression, Naive Bayes, Random Forest K-Nearest Neighbors | Determine causes of poverty in Costa Rica
+    | [[file:machine-learning/Costa_Rica_Poverty.py][poverty]] |  Python | Logistic Regression, Naive Bayes, Random Forest, K-Nearest Neighbors | Determine causes of poverty in Costa Rica
     | [[file:machine-learning/Dimensionality_Reduction.py][dimensionality-reduction]]  |  Python | Hierarchical Clustering, t-SNE, Clustering| Classify written numbers (MNIST) |
     | [[file:machine-learning/HousingPrices.py][housing-prices]]  |  Python | SGD, Lasso, Kernel Ridge, K Nearest Neighbors, Feature engineering, train-test-split| Predict Housing Prices (Supervised learning) |
     
