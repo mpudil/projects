@@ -9,82 +9,80 @@ groupings that match key course themes. These are:
 
 1. =Statistical Computing= algorithms, data structures, recursion, object-oriented programming
 2. =Statistical Modeling=, misc. projects involving statistical modeling
-3. =Machine Learning= Machine learning projects including dimensionality reduction, unsupervised, and supervised learning
+3. =Machine Learning and NLP= Machine learning and NLP projects including dimensionality reduction, unsupervised, and supervised learning
 4. =Economics Projects=, various economics projects from my BYU undergrad
 5. =SQL= SQL Practices
 
 *** Statistical Computing
 
-    | Assignment | Language(s) | Description                                 |
+    | Project | Language(s) | Method(s) | Description   |
     |------------+--------+---------------------------------------------|
-    | [[file:tree-builder][tree-builder]]      |      R | Use recursion to build binary classification tree                     |
-    | [[file:All/dos2unix.pdf][dos2unix]]   |      1 | Convert line endings; learn simple file I/O |
+    | [[file:closest-pair][closest-pair]]   |  R | Divide and Conquer | Determine closest pair of points from given set |
+    | [[file:das-blinkenlights][das-blinkenlights]]   |  R | Data Structures, Recursion | Modular arithmetic problem with cows |
+    | [[file:tree-builder][tree-builder]]      |   R | Recursion, object-oriented programming| Build binary classification tree |
+    | [[file:web-scraping][web-scraping]]      |   R |Web Scraping, Regular Expressions| Web-scrape Walmart and Glassdoor websites |
 
-*** Tools and Practices
+*** Statistical Modeling
 
-    | Assignment       | Language(s) | Description                                           |
+    | Project       | Language(s) | Method(s) | Description |
     |------------------+--------+-------------------------------------------------------|
-    | [[file:All/code-review.pdf][code-review]]      |      2 | Review code with constructive feedback                |
-    | [[file:All/mean-assert.pdf][mean-assert]]      |      2 | Write assertions to detect problems                   |
-    | [[file:All/test-this.pdf][test-this]]        |      1 | Basic unit testing practice                           |
-    | [[file:All/test-this-random.pdf][test-this-random]] |      2 | Unit testing with functions that have random output   |
-    | [[file:All/what-does-it-do.pdf][what-does-it-do]]  |      1 | Fix code to make its purpose clearer, have good style |
-    | [[file:All/naming.pdf][naming]]           |      1 | Fix variable names in code to be clearer              |
-    | [[file:All/git-challenge.pdf][git-challenge]]    |      2 | A Git scavenger hunt                                  |
-    | [[file:All/cli-murders.pdf][cli-murders]]      |      2 | A command line scavenger hunt                         |
-    | [[file:All/polyglot.pdf][polyglot]]         |      3 | Advanced: figure out how weird shell scripts work     |
+    | [[file:Avalanche][avalanche]]  |  R, SAS | Poisson Regression | Model the number of avalanches in Utah |
+    | [[file:Greenhouse][greenhouse]] |  R, SAS | Linear Regression | Determine effect of various gases on average global temperature |
+    | [[file:ScottishHills][scottish-hill-racing]] | R, SAS | Identifying Outliers | Analyze Scottish Hill racing data|
+    | [[file:Statistics-Pedagogy][statistics-pedagogy]]  |  R | GLS | Determine relevance of class activities on student grades |
+    | [[file:sound-of-music][sound-of-music]]  |  R | Mixed Models| Determine factors that affect how people interpret music genre |
+    | [[file:Birthweight_Analysis.R][birthweight]]  |  R | Linear Regression, Cross Validation | Determine factors that lead to a change in baby birthweight|
+    | [[file:Cardio.R][cardiovascular-health]]  |  R | Longitudinal Models| Determine causes of Tachycardia |
+    | [[file:Climate_Analysis.R][climate-change]]  |  R | Time Series (SARIMA)| Predict climate change for next 5 years |
+    | [[file:FoodExpenditures.R][food-expenditures]]  |  R | GLS, Fixing Heteroskedasticity| Estimate effect of income on eating out |
+    | [[file:GOT.R][game-of-thrones]]  |  R | Time Series (SARIMA) | Predict Game of Thrones viewership |
+    | [[file:Grades.sas][student-grades]]  |  SAS | Data Summarization in SAS| Create reports for student grades in SAS |
+    | [[file:Land_Analysis.R][Land_Analysis]]  |  R | Spatial Modeling, Imputation | Determine effects of increased temperature; Create and map temperature at locations impeded by cloud coverage
+    | [[file:STEM.R][stem]] | R | Logistic mixed-effects, ROC | Determine influencers of whether or not students remain in STEM majors |
+    | [[file:armd_analysis.R][macular-degeneration]]  |  R | Longitudinal MLR, optim | Determine causes of age-related macular degeneration |
+    | [[file:heart_disease.R][myocardial-infarcation]]  |  R | GLM, ROC/AUC| Determine causes of Myocardial Infarcation |
+    
+    
 
-*** Algorithms and Data Structures
+*** Machine Learning and NLP
 
-    | Assignment        | Points | Description                                                 |
+    | Assignment        | Language(s) | Method(s) | Description                                                 |
     |-------------------+--------+-------------------------------------------------------------|
-    | [[file:All/edit-distance.pdf][edit-distance]]     |      2 | Calculate edit distance using dynamic programming           |
-    | [[file:All/sudoku.pdf][sudoku]]            |      2 | Solve Sudoku puzzles using backtracking                     |
-    | [[file:All/maze-solver.pdf][maze-solver]]       |      3 | Solve a maze and print out the best solution                |
-    | [[file:All/moolympics.pdf][moolympics]]        |      2 | Traverse a graph to help cows ski                           |
-    | [[file:All/order.pdf][order]]             |      2 | Divide-and-conquer problem similar to mergesort             |
-    | [[file:All/closest-pair.pdf][closest-pair]]      |      3 | A tricky divide-and-conquer problem with fun geometry       |
-    | [[file:All/binary-search.pdf][binary-search]]     |      /v/ | Divide-and-conquer searching of a sorted list               |
-    | [[file:All/tree-builder.pdf][tree-builder]]      |      2 | Build a simple binary tree and get great recursion practice |
-    | [[file:All/anagrams.pdf][anagrams]]          |      2 | Find anagrams in a file, using a good data structure        |
-    | [[file:All/cow-proximity.pdf][cow-proximity]]     |      2 | Use a data structure to solve a goofy cow puzzle            |
-    | [[file:All/das-blinkenlights.pdf][das-blinkenlights]] |      2 | Shortcut a slow calculation using a data structure          |
+    | [[file:Stylometrics][stylometrics-book-mormon]] |  R | PCA, Random Forest | Determine distinguishability of authors in Book of Mormon
+    | [[file:information-retrieval-bow][information-retrieval-bow]] |  R | NLP, PCA| Use bag of words to search and cluster text data |
+    | [[file:machine-learning/Costa_Rica_Poverty.py][poverty]] |  Python | Logistic Regression, Naive Bayes, Random Forest K-Nearest Neighbors | Determine causes of poverty in Costa Rica
+    | [[file:machine-learning/Dimensionality_Reduction.py][dimensionality-reduction]]  |  Python | Hierarchical Clustering, t-SNE, Clustering| Classify written numbers (MNIST) |
+    | [[file:machine-learning/HousingPrices.py][housing-prices]]  |  Python | SGD, Lasso, Kernel Ridge, K Nearest Neighbors, Feature engineering, train-test-split| Predict Housing Prices (Supervised learning) |
+    
+    
+**** See the "random-forest" repository at =github.com/mpudil/random-forest= to view the code for creating Random Forests from scratch, and SQL decision trees.
+    
+    
+    
+*** Economics Projects
 
-*** Computing Concepts
-
-    | Assignment          | Points | Description                                                           |
+    | Assignment          | Language(s) | Method(s) | Description                                                           |
     |---------------------+--------+-----------------------------------------------------------------------|
-    | [[file:All/no-loops.pdf][no-loops]]            |      2 | Use functional programming to solve simple problems                   |
-    | [[file:All/kernel-smoother.pdf][kernel-smoother]]     |      2 | Use functional programming to make a kernel smoother                  |
-    | [[file:All/graph-classes.pdf][graph-classes]]       |      2 | Design classes and methods to store graphs, including nodes and edges |
-    | [[file:All/cow-proximity-redux.pdf][cow-proximity-redux]] |      2 | Redo cow-proximity with a functional or object-oriented approach      |
+    | [[file:Statistics-homeschooling][statistics-pedagogy]]  |  Stata | Logistic Regression, fixed effects | Determine effect of maternal education on odds of child being homeschooled (working paper) |
+    | [[file:socioeconomics][socioeconomics-pci]]  |  R | Linear Regression, feature engineering | Determine socioeconomic factors that affect per-capita income  |
+    
+        
+        
+        
 
-*** Data and Methods
+*** SQL
 
-    | Assignment                | Points | Description                                                        |
+    | Assignment                | Description (all in SQL)                                                    |
     |---------------------------+--------+--------------------------------------------------------------------|
-    | [[file:All/neural-nets.pdf][neural-nets]]               | /v/      | Implement a simple feed-forward neural network and backpropagation |
-    | [[file:All/dealing-with-CRUD.pdf][dealing-with-CRUD]]         | /v/      | Vignette on using SQL to manipulate data                           |
-    | [[file:All/sfn.pdf][sfn]]                       | 2      | Write SQL queries to calculate interesting things                  |
-    | [[file:All/markov-babbler.pdf][markov-babbler]]            | /v/      | Use Markov chains to generate random text; good starter HW         |
-    | [[file:All/information-retrieval-bow.pdf][information-retrieval-bow]] | /v/      | Use bag of words to search and analyze text data                   |
-
-** Challenges
-
-   The Challenge projects are separate from normal homework. They're in four
-   parts, to be submitted throughout the semester. A schedule is [[https://36-750.github.io/course-info/syllabus/#challenges][given in the
-   syllabus]].
-
-   Start *each part* of the Challenge projects by using =new-homework=, just like
-   you'd do with a vignette. That way, part 3 of =classification-tree= will be a
-   branch named =classification-tree-3=, and so on.
-
-   - [[file:All/classification-tree.pdf][classification-tree]] :: Implement classification trees and forests from
-        scratch, and use them to classify data scraped from web sites (in part 4).
-   - [[file:All/autocomplete-me.pdf][autocomplete-me]] :: Build a prefix tree (trie) to rapidly suggests
-        completions for queries typed by users; in part 4, use Rcpp or Cython to
-        speed this up.
-   - [[file:All/shazam.pdf][shazam]] :: Use audio fingerprinting to match recordings of a small part of a
-        song to a database of songs.
-   - [[file:All/anomaly-speed.pdf][anomaly-speed]] :: Use isolation forests to analyze videos and detect
-        anomalies, and use this to track cars as they move through a video.
+    | [[file:dealing-with-CRUD][CRUD]]  |  Create, Read, Update, and Delete ("CRUD") in SQL |
+    | [[file:sfn][sfn]]  |  Perform calculations and work with data from ScienceForums.net in SQL |
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
