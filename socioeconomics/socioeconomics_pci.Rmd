@@ -1,0 +1,472 @@
+---
+title: "Appendix"
+output:
+  pdf_document: default
+---
+```{r, include=FALSE}
+setwd("C:/Users/Mitchell Pudil/Downloads")
+require("pairsD3")
+library(tidyverse)
+library(reshape2)
+library(ggplot2)
+library(MASS)
+library(car)
+library(ggpubr)
+library(stargazer)
+
+cdi <- read.table("cdi.dat")[,-1]
+source("C:/Users/Mitchell Pudil/Desktop/Linear Models/heatmapcreator.R") 
+
+```
+
+To start off, let's consider some variables that could be meaningful to include in the model from a social science perspective.
+
+• Population density = land area / population
+
+• Crime rate = crimes / population
+
+• Percent doctors: Doctors / population
+
+• Percent hospital beds: hospital beds / population
+
+
+```{r}
+
+cdi <- read.table("C:/Users/Mitchell Pudil/Downloads/cdi.dat")[,-1] %>% 
+  mutate(pop.density = pop/land.area, crime.rate = crimes/pop, 
+         doctor.per.cap = doctors/pop,
+         hosp.beds.pc = hosp.beds/pop)
+                                        
+                                        
+heatmapCreator(cdi[,-c(1:4,7:9,15:16)]) 
+vif(lm(per.cap.income~., data=cdi[,-c(1:4,7:9,15:16)]))
+
+```
+
+We notice from the above correlation heatmap that:
+• The number of hospital beds, the number of doctors, the total income, population, and crimes are all positively correlated (see upper right)
+
+• The percentage of high school grads, percentage of bachelors degrees and per capita income are highly related to each other
+
+• The unemployment rate and the education rates (hs grads and bachelors degrees) are negatively related and positively related to the percentage below poverty level.
+
+• The percent of population above 65 is negatively correlated to the population between 18-34.
+
+• Per capita income is positively related to total income, but perhaps not as highly as expected. It is also negatively related to land area, percentage below poverty, and unemployment rate.
+
+
+Let's look at the relationships between region and the quantitative variables.
+
+
+```{r}
+
+unemployplot <- ggplot(cdi, aes(x=region, y=pct.unemp, fill=region)) + 
+  geom_boxplot() + theme_bw() + labs(x="Region", y="Unemployment Rate") + 
+  theme(legend.position = "none") + theme(axis.title=element_text(size=7))
+
+
+landplot <- ggplot(cdi, aes(x=region, y=log(pop/land.area), fill=region)) + 
+  geom_boxplot() + theme_bw() + labs(x="Region", y="Log Population Density") +
+  theme(legend.position = "none") + theme(axis.title=element_text(size=7))
+
+youngplot <- ggplot(cdi, aes(x=region, y=pop.18_34, fill=region)) + 
+  geom_boxplot() + theme_bw() + labs(x="Region", y="% Age 18-34") +
+  theme(legend.position = "none") + theme(axis.title=element_text(size=7))
+
+
+oldplot <- ggplot(cdi, aes(x=region, y=pop.65_plus, fill=region)) + 
+  geom_boxplot() + theme_bw() + labs(x="Region", y="% Age 65+") +
+  theme(legend.position = "none") + theme(axis.title=element_text(size=7))
+
+
+docplot <- ggplot(cdi, aes(x=region, y=doctors/pop, fill=region)) + 
+  geom_boxplot() + theme_bw() + labs(x="Region", y="Doctors Per Capita") + 
+  theme(legend.position = "none") + theme(axis.title=element_text(size=7))
+
+
+hosbedsplot <- ggplot(cdi, aes(x=region, y=hosp.beds/pop, fill=region)) + 
+  geom_boxplot() + theme_bw() + labs(x="Region", y="Hospital Beds Per Capita") + 
+  theme(legend.position = "none") + theme(axis.title=element_text(size=7))
+
+
+crimeplot <- ggplot(cdi, aes(x=region, y=crimes/pop, fill=region)) + 
+  geom_boxplot() + theme_bw() + labs(x="Region", y="Crimes Per Capita") + 
+  theme(legend.position = "none") + theme(axis.title=element_text(size=7))
+
+
+hsplot <- ggplot(cdi, aes(x=region, y=pct.hs.grad, fill=region)) + 
+  geom_boxplot() + theme_bw() + labs(x="Region", y="% HS Grad") + 
+  theme(legend.position = "none") + theme(axis.title=element_text(size=7))
+
+
+bachplot <- ggplot(cdi, aes(x=region, y=pct.bach.deg, fill=region)) + 
+  geom_boxplot() + theme_bw() + labs(x="Region", y="% Bachelor Deg") + 
+  theme(legend.position = "none") + theme(axis.title=element_text(size=7))
+
+
+povertyplot <- ggplot(cdi, aes(x=region, y=pct.below.pov, fill=region)) + 
+  geom_boxplot() + theme_bw() + labs(x="Region", y="% Below Poverty") + 
+  theme(legend.position = "none") + theme(axis.title=element_text(size=7))
+
+
+percapplot <- ggplot(cdi, aes(x=region, y=log(per.cap.income), fill=region)) + 
+  geom_boxplot() + theme_bw() + labs(x="Region", y="Log PCI") + 
+  theme(legend.position = "none") + theme(axis.title=element_text(size=7))
+
+
+
+ggarrange(unemployplot, landplot, youngplot, oldplot, docplot, hosbedsplot, 
+          crimeplot, hsplot, bachplot, povertyplot, percapplot, ncol=3, nrow=4)
+
+```
+
+
+
+The above plot shows us that:
+
+• Unemployment rate and land area varies most in the West
+
+• There are a handful of outlier counties in the South where the percentage of high school graduates are less than 60%, but there are also several counties in the South where the percent of bachelor degrees in the population is above 35%.
+
+• The median percentage of people by county that live below the poverty rate is highest in the South. 
+
+• There does not appear to be huge overall differences in crime rates by region, although there are counties in each region where the crime is high.
+
+
+
+We can also look at VIFs which come from a linear regression of per capita income on all explanatory variables (other than county and state).
+
+```{r}
+lm(per.cap.income ~., data=cdi[,-c(1:4,7:9,15:16)]) %>% vif %>% round(2)
+
+```
+
+
+
+2. There is a theory that, if we ignore all other variables, per-capita income should be related to crime rate, and that this relationship may be different in different regions of the country (Northeast, Northcentral, South, and West). What do the data say?
+
+Plot crime vs. per-capita income for each region
+
+```{r}
+ggplot() + 
+  geom_smooth(data=subset(cdi, cdi$region=="W"), 
+              mapping=aes(x = log(crimes), y=log(per.cap.income), color="W"), 
+              method="lm", se = FALSE) +
+  geom_smooth(data=subset(cdi, cdi$region=="NC"), 
+              mapping=aes(x=log(crimes), y=log(per.cap.income), color="NC"), 
+              se=FALSE, method="lm") +
+  geom_smooth(data=subset(cdi, cdi$region=="S"), 
+              aes(x=log(crimes), y=log(per.cap.income), color="S"), 
+              se=FALSE, method="lm") +
+  geom_smooth(data=subset(cdi, cdi$region=="NE"), 
+              aes(x=log(crimes), y=log(per.cap.income), color="NE"),
+              se=FALSE, method="lm") +
+  theme_bw() +
+  labs(x="Log of Crimes", y="Log of Per-Capita Income") +
+  labs(color="Region")
+  
+```
+
+Obviously, this isn't sufficient to prove anything, but it shows there is likely a relationship between crime and per-capita income at the very least.
+
+Check to see if any variables need to be transformed.
+```{r}
+powerTransform(lm(per.cap.income~1, data=cdi))
+powerTransform(lm(crimes~1, data=cdi))
+
+```
+
+It appears that logging both per capita income and crimes would be helpful here
+
+```{r}
+crime_region_lm <- lm(log(per.cap.income) ~ log(crimes)*region, data=cdi)
+summary(crime_region_lm)
+```
+
+
+We find that there is a statistically significant effect of crime rate on per capita income. However, the relationship between crime rate and per capita income does not appear to vary by any region specifically. However, even this is not enough since we are really looking at all of the interactions at once. Thus we will need an F test to determine if the relationship between crime and per-capita income varies by region.
+
+```{r}
+crime_lm <- lm(log(per.cap.income) ~ log(crimes), data=cdi)
+anova(crime_region_lm, crime_lm)
+```
+So even though individually, none of the interactions appeared statistically significant, there is very strong evidence suggesting that region does affect the relationship between crime and per-capita income. 
+
+
+3. Find the best model predicting per-capita income from the other variables (including possible transformations, interactions, etc.). Here “best” means a good compromise between
+
+• Best reflects the social science and the meaning of the variables
+
+• Best satisfies modeling assumptions
+
+• Is most clearly indicated by the data
+
+• Can be explained to someone who is more interested in social, economic and health factors than
+in mathematics and statistics.
+
+
+
+Let's now determine what other transformations could be good by power transforming the other variables. We will do this for all continuous variables we have created up until now.
+
+```{r, warnings=FALSE}
+cdi.tf <- cdi[,-c(1,2,16)] # Variables dropped: county, state, pop,
+
+pt <- data.frame(matrix(nrow=17, ncol=3, data=NA))
+colnames(pt) <- c("Variable", "Suggested_Transformation", "Rounded_Transformation")
+pt$Variable <- colnames(cdi.tf)[1:17]
+
+for(i in 1:17){
+  suppressWarnings(pt$Suggested_Transformation[i] <- round((powerTransform(lm(cdi.tf[,i]~1))$lambda),2))
+}
+
+pt$Rounded_Transformation <- c("log", -0.5, -0.5, rep("log", 4), 3, 
+                               rep("log", 3), -0.5, -0.5, "log", -0.5, rep("log", 2))
+pt
+```
+
+Now, there would be some problems with interpretations even if we just used the rounded transformations. For example, it is difficult to interpret coefficient on the log of the percentage of population with a bachelors degree or high school degree. It is also difficult to explain a cubic relationship. Further, we have variables that are aliased that we will want to remove before starting a regression. This includes two versions of the same variable as well as variables that are equal to a proportion of other variables (e.g. per-capita income = total income / population). Since there are a couple choices for which variable to remove, we will create two models: one where we don't divide the newly-created variables by population (model 1) and one where we do (model 2). It also not very interesting to use one measure of income (total income) to predict another measure of income (per capita income), so we will remove total income in both cases.
+
+Our first two models then becomes:
+
+```{r}
+lm1 <- lm(log(per.cap.income) ~ log(land.area) + pop.18_34 + pop.65_plus + 
+            log(doctors) + log(hosp.beds) + log(crimes) + pct.hs.grad + 
+            pct.bach.deg + pct.below.pov + pct.unemp + region, data=cdi)
+
+lm2 <- lm(log(per.cap.income) ~ log(pop.density) + pop.18_34 + pop.65_plus + 
+            doctor.per.cap + hosp.beds.pc + crime.rate + pct.hs.grad + pct.bach.deg + 
+            pct.below.pov + pct.unemp + region, data=cdi)
+```
+
+Let's compare the two models, starting with the first.
+
+```{r}
+vif(lm1)
+```
+
+The vifs for lm1 are high for doctors, hospital beds, and crimes because of how closely related they all are.
+
+```{r}
+mmps(lm1)
+```
+
+The marginal model plots for lm1 are fine. Let's look at the residual diagnostic plots
+
+```{r}
+par(mfrow = c(2,2))
+plot(lm1)
+```
+Observations 294 and 437 look a bit off, but other than that, it seems fine. We'll return to determining whether or not we should remove any of the observations after we determine which model is better.
+
+Now let's look at lm2.
+
+```{r}
+vif(lm2)
+```
+
+The VIFs don't look nearly as bad as in model 1 now that we have normalized the variables.
+
+```{r}
+mmps(lm2)
+```
+The marginal model plots still look fine.
+
+```{r}
+par(mfrow = c(2,2))
+plot(lm2)
+```
+
+The residuals look about as good as in lm1. Note that the distribution of the error terms is not normal, but that is likely due to the categorical variables we have in the model. Let's also compare the xIC and adj R squared.
+```{r}
+AICs = c(AIC(lm1), AIC(lm2))
+BICs = c(BIC(lm1), BIC(lm2))
+adjrsqs = c(summary(lm1)$adj.r.squared, summary(lm2)$adj.r.squared)
+data.frame(model = 1:2, AIC=AICs, BIC=BICs, adj.r.sq = adjrsqs)
+```
+
+It appears that lm1 has high VIFs but lower xICs and adjusted r squared than model 2. Since the coefficients of lm1 are biased becuase of the high levels of collinearity, and the xIC and adjusted R squared of model 2 is still good, let's continue with model 2 for now.
+
+
+ Let's see if we can add some meaningful interactions that would help increased adjusted r squared, but also make sense to social scientists. A few that may be interesting are:
+ 
+• Region * unemployment: does the relationship between unemployment and per-capita income vary by region?
+
+• Region * hs.grad: does the relationship between schooling and per-capita income vary by region?
+
+
+Let's test some of these out with model 3.
+
+```{r}
+lm3 <- lm(log(per.cap.income) ~ log(pop.density) + pop.18_34 + pop.65_plus + 
+            doctor.per.cap + hosp.beds.pc + crime.rate + pct.bach.deg + 
+            pct.below.pov + region*pct.unemp + region*pct.hs.grad, data=cdi)
+
+summary(lm3)
+
+```
+
+We find that there are significant interaction effect(s) between the proposed interactions, though not necessarily for all factors (regions). Since they are significant for at least one interaction, we will keep all the interactions in. 
+
+Personally, I think it's a bit confusing to have both the doctors variable and the number of hospital beds in the county. Plus, once accounting for the number of hospital beds, the doctors variable isn't statistically significant anyway. Also, the population age 65+ isn't statistically significant. Let's see what happens when we throw the doctors variable and the age 65+ variables away.
+
+```{r}
+lm4 <- lm(log(per.cap.income) ~ log(pop.density) + pop.18_34 + 
+            hosp.beds.pc + crime.rate + pct.bach.deg + pct.below.pov + 
+            region*pct.unemp + region*pct.hs.grad, data=cdi)
+
+summary(lm4)
+
+```
+
+
+Let's now compare models 3 and 4.
+
+```{r}
+AICs = c(AIC(lm3), AIC(lm4))
+BICs = c(BIC(lm3), BIC(lm4))
+adjrsqs = c(summary(lm3)$adj.r.squared, summary(lm4)$adj.r.squared)
+data.frame(model = 3:4, AIC=AICs, BIC=BICs, adj.r.sq = adjrsqs)
+```
+
+Model 4 appears to outperform model 3 (or at least be approximately equal to it in the case of adjusted r squared). It would also be interesting to see how stepwise regression simplifies the model.
+
+```{r}
+step.model <- stepAIC(lm3, direction = "both", 
+                      trace = FALSE)
+
+summary(step.model)
+```
+
+Interestingly, it is the same as lm4! So far, lm4 seems to be a great model. Let's make sure it satisfies our assumptions.
+
+```{r}
+par(mfrow=c(2,2))
+plot(lm4)
+```
+The residuals plots look good, but it's hard to tell if there are any bad leverage points. Let's draw our own graph based off of Sheather's suggestions for leverage cutoffs.
+
+```{r}
+lev4 <- cooks.distance(lm4)
+lev.cutoff <- 2*(17+1)/nrow(cdi) # Sheather suggests the cutoff for the leverage points to be 2*(p+1)/n, which is twice the average leverage
+
+res4 <- stdres(lm4)
+reslev4 <- data.frame(lev=lev4, res=res4, row=rownames(cdi))
+
+
+ggplot(reslev4, aes(lev, res)) + geom_point() + 
+  geom_text(data=subset(reslev4, reslev4$lev > lev.cutoff | abs(reslev4$res) > 2) , aes(x=lev, y=res, label=row), size=3, hjust=1.5, vjust=1.5) + 
+  geom_vline(xintercept = lev.cutoff, linetype="dashed", col="blue") +
+  geom_hline(yintercept = 2, col="red") +
+  geom_hline(yintercept = -2, col="red") +
+  labs(x="Leverage", y="Standardized Residuals")+
+  theme_bw()
+
+```
+
+It appears that we have one bad leverage point: row 6, or Kings, NY. This is an outlier since the land area is only 71 square miles but it has a huge population of over 32,000. Let's create a model that does not have that observation and compare the two models.
+
+```{r}
+lm5 <- lm(log(per.cap.income) ~ log(pop.density) + pop.18_34 + hosp.beds.pc + crime.rate + pct.bach.deg + pct.below.pov + region*pct.unemp + region*pct.hs.grad, data=cdi[-6,])
+
+AICs = c(AIC(lm4), AIC(lm5))
+BICs = c(BIC(lm4), BIC(lm5))
+adjrsqs = c(summary(lm4)$adj.r.squared, summary(lm5)$adj.r.squared)
+data.frame(model = 4:5, AIC=AICs, BIC=BICs, adj.r.sq = adjrsqs)
+```
+The model has now improved in xIC and r squared, and quite significantly too for just dropping one bad observation.
+
+Let's test this model to make sure it passes all the tests.
+
+```{r}
+par(mfrow=c(2,2))
+plot(lm5)
+```
+Again, there's not too much we can do about the normality because of the categorical variables, but everythiing else looks fine.
+
+```{r}
+mmps(lm5)
+```
+
+The marginal model plots fit.
+
+Let's now perform k-fold cross validation to test the predictive power of lm5.
+
+```{r}
+set.seed(12)
+dataset <- cdi[-6, ] #Create data frame
+
+
+#install.packages("cvTools")
+library(cvTools) #run the above line if you don't have this library
+
+k <- 5 #the number of folds
+
+folds <- cvFolds(NROW(dataset), K=k)
+mse <- rep(NA,5)
+percent.off <- rep(NA,5)
+for(i in 1:k){
+  train <- dataset[folds$subsets[folds$which != i], ] #Set the training set
+  validation <- dataset[folds$subsets[folds$which == i], ] #Set the validation set
+
+  newlm <- lm(log(per.cap.income) ~ log(pop.density) + pop.18_34 + 
+                hosp.beds.pc + crime.rate + pct.bach.deg + pct.below.pov + 
+                region*pct.unemp + region*pct.hs.grad, data=train)
+ #Get your new linear model (just fit on the train data)
+ preds <- exp(predict(newlm,newdata=validation)) #Get the predicitons for the validation set (from the model just fit on the train data)
+ actual <- validation$per.cap.income
+ mse[i] <- (actual-preds)^2 %>% sum %>% mean 
+ 
+ percent.off[i] <- mean(abs(preds-actual)/actual)*100
+  
+}
+
+
+mean(mse)
+mean(percent.off)
+
+
+```
+This model (lm9) does a good job at prediction. It is off by about 6.1% on average.
+
+
+
+4. A county is a governmental unit in the United States that is bigger than a city but smaller than a state. There are 50 states in the US, plus the District of Columbia, which is usually coded as a 51st state in data like this. There are 48 states represented in the data. There are approximately 3000 counties in the US, and 373 represented in the data set. Should we be worried about either the missing states or the missing counties? Why or why not?
+
+
+See discussion section.
+
+The following table looks at how many counties were represented by state. Note that not all states are included.
+
+```{r}
+table(cdi$state)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
