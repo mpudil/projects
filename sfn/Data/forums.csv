@@ -1,0 +1,107 @@
+"id","topics","posts","name","inc_postcount","parent_id","deleted_posts","deleted_topics"
+3,5578,75028,"The Lounge",1,32,729,11
+4,1941,13423,"Biology",1,80,222,111
+5,2174,13341,"Chemistry",1,80,191,13
+6,2368,19490,"Physics",1,80,213,14
+7,2496,26986,"Astronomy and Cosmology",1,6,229,8
+8,1726,16881,"Classical Physics",1,6,206,89
+9,1387,16164,"Quantum Theory",1,6,142,14
+10,1238,19648,"Relativity",1,6,174,16
+11,796,5713,"Analysis and Calculus",1,38,87,21
+12,424,2568,"Linear Algebra and Group Theory",1,38,57,27
+13,0,0,"Science and Media",1,63,0,0
+14,1312,5128,"Biochemistry and Molecular Biology",1,4,91,46
+15,1132,18703,"Evolution, Morphology and Exobiology",1,4,281,42
+16,362,2040,"Applied Mathematics",1,38,85,12
+17,1458,12469,"Engineering",1,80,146,99
+18,1734,18311,"Modern and Theoretical Physics",1,6,195,9
+19,1091,8290,"Anatomy, Physiology and Neuroscience",1,22,149,64
+20,859,5666,"Genetics",1,4,125,68
+21,609,3047,"Microbiology and Immunology",1,22,90,36
+22,766,6483,"Medical Science",1,80,222,104
+23,880,13126,"Psychiatry and Psychology",1,22,213,82
+24,140,2088,"Forum Announcements",1,37,290,0
+25,2275,19223,"Computer Science",1,80,350,158
+26,1358,11990,"Moderators",0,43,10,0
+27,352,9234,"Ethics",1,101,112,19
+28,657,8220,"Suggestions, Comments and Support",0,32,159,2
+29,3411,61764,"Speculations",1,32,467,160
+30,1116,3085,"Removed Thread Holding Area",0,43,148,5704
+31,822,24098,"Philosophy and Religion",1,63,260,0
+32,0,0,"Other Topics",0,-1,0,0
+33,933,6782,"Science Education",1,70,226,13
+34,3217,76666,"Politics",1,32,732,28
+35,3197,12416,"Homework Help",1,70,336,12
+36,1802,18608,"Other Sciences",1,80,167,3
+37,0,0,"News",0,-1,0,0
+38,1691,14612,"Mathematics",1,80,194,9
+39,19,173,"Debate Forum",1,63,5,0
+40,21,240,"Challenges",1,39,15,0
+41,9,101,"Peanut Gallery",1,39,0,0
+42,13,169,"Voting Booth",1,39,1,0
+43,0,0,"Administration",0,-1,0,0
+44,59,655,"Old Challenges",1,40,19,0
+45,421,5428,"Brain Teasers and Puzzles",1,32,122,24
+46,8,69,"Member Projects",1,63,5,0
+47,0,0,"Current Projects",1,46,0,0
+48,0,0,"Closed Projects",1,46,0,0
+49,60,547,"Administrators",1,43,2,0
+50,53,1184,"Project 1: The New World",1,48,12,0
+51,13,85,"Project Discussions",1,46,1,0
+52,535,8007,"Ecology and the Environment",1,4,187,21
+53,0,0,"Staff Meetings",0,-1,0,0
+54,6,77,"Staff Meeting: 1st-4th April 2005",1,95,0,0
+55,303,2895,"Resident Experts",1,43,4,1
+56,435,2985,"Computer Help",1,25,53,6
+57,60,317,"Reported Posts",0,43,0,0
+58,7,39,"Staff Meeting: 10th-17th October 2005",1,95,0,0
+59,1096,6162,"Organic Chemistry",1,5,122,74
+60,1570,15754,"Inorganic Chemistry",1,5,157,53
+61,852,7041,"Applied Chemistry",1,5,101,39
+62,10,88,"Staff Meeting: 3rd-10th April 2006",1,95,0,0
+63,0,0,"Archives",1,32,0,0
+64,16,207,"Philosophy of Science",1,63,0,0
+65,193,1197,"Experiments",1,78,83,0
+66,1,0,"Media Discussions",1,13,0,0
+67,2,7,"SFN Book Discussions",1,13,0,0
+68,0,0,"Book Discussion Archive",1,67,0,0
+69,1,0,"Current Book Discussions",1,67,0,0
+70,0,0,"Education",0,-1,0,0
+71,1,26,"Current Media Discussion",1,66,2,0
+72,0,0,"Media Discussion Archive",1,66,0,0
+73,0,0,"Sprain your Brain",1,63,0,0
+74,2,23,"SFN Brain Challenges",1,73,0,0
+75,2,64,"Sprained Brain Archives",1,74,3,0
+76,16,387,"Staff Meeting: 17th March - Whenever 2007",0,95,0,0
+77,7,77,"Forum Organization",0,76,0,0
+78,105,687,"Amateur Science",1,80,13,0
+79,138,1155,"Projects",1,78,86,7
+80,0,0,"Sciences",0,-1,0,0
+81,253,7091,"Trash Can",1,29,54,26
+82,90,413,"Equipment",1,78,42,2
+83,17,460,"Staff Meeting v. 2K8",0,95,1,0
+84,4,114,"Interview Team",0,89,0,0
+85,10,83,"Ground Up Threads",0,89,0,0
+86,0,0,"Debates",1,-1,0,0
+87,2,42,"Debates",1,86,6,0
+88,1,8,"Mathematics Tutorials",1,38,7,0
+89,0,0,"Collaboration",0,-1,0,0
+90,119,961,"Book Talk",1,3,75,4
+91,3,33,"Team Podcast",1,89,0,0
+92,0,0,"SmarterThanThat Forums",0,-1,0,0
+93,16,156,"SmarterThanThat Videos",1,92,49,0
+94,0,0,"SmarterThanThat.com",1,92,0,0
+95,0,0,"Old Staff Meetings",1,53,0,0
+96,6,74,"Staff Meeting: 8th July 2008 - 22nd July 2008",0,95,0,0
+97,1771,4618,"Resolved Reports",0,57,2,0
+98,1238,2192,"Archived Reports",0,57,0,0
+99,42,237,"The Sandbox",0,28,16,0
+100,545,3408,"Science News",1,37,176,12
+101,0,0,"Philosophy",0,-1,0,0
+102,327,7069,"General Philosophy",1,101,55,5
+103,473,17085,"Religion",1,101,101,29
+104,283,1841,"Earth Science",1,80,56,7
+105,87,2079,"Climate Science",1,104,19,0
+106,0,0,"Rational Skepticism",1,32,0,0
+107,19,229,"Staff Meeting 2010",0,53,0,0
+108,1173,22,"SFN Blogs",1,37,0,0

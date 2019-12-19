@@ -1,0 +1,270 @@
+R code to create/write tables (Alex approved using this method)
+
+dbWriteTable(con, name = "posts", value =  posts[,c(1:4,6)], field.types = c(pid = "integer primary key",
+                                                                             author_id = "integer",
+                                                                             post_date = "integer",
+                                                                             topic_id = "integer",
+                                                                             queued = "integer"), row.names=FALSE)
+             
+                                                            
+dbWriteTable(con, name = "topics", value =  topics[,c(1:8)], field.types = c(tid = "integer primary key",
+                                                                           title = "text",
+                                                                           state = "text",
+                                                                           posts = "integer",
+                                                                           start_date = "integer",
+                                                                           last_post = "integer",
+                                                                           views = "integer",
+                                                                           forum_id = "integer"), row.names=FALSE)
+
+
+
+dbWriteTable(con, name = "forums", value =  forums[,c(1,4,6)], field.types = c(id = "integer primary key",
+                                                                               name = "text",
+                                                                               parent_id = "integer"), row.names=FALSE)
+
+
+
+
+ALTER TABLE posts ALTER post_date DROP DEFAULT, ALTER post_date type TIMESTAMP USING to_timestamp(post_date);
+ALTER TABLE topics ALTER start_date DROP DEFAULT, ALTER start_date type TIMESTAMP USING to_timestamp(start_date), 
+ALTER last_post DROP DEFAULT, ALTER last_post type TIMESTAMP USING to_timestamp(last_post);
+
+
+
+
+SFN SQL Code
+
+1. 
+
+Query:
+
+SELECT
+   title,
+   start_date,
+   last_post,
+   name 
+FROM
+   topics 
+   JOIN
+      forums 
+      ON topics.forum_id = forums.id;
+
+Result:
+
+title											start_date		last_post	 name
+----------------------------------------------------------------------------------|---------------------|---------------------|----------
+ Hubble Snaps Pix Of Dying Supernova
+                                                                                  | 2002-07-05 17:59:45 | 2004-10-25 15:58:09 | Politics
+ Flaws In Creationism
+                                                                                  | 2002-07-05 18:24:59 | 2002-07-06 00:46:00 | Philosophy and Religion     
+ NO sensor may detect diseases
+                                                                                  | 2002-07-05 18:49:00 | 2002-07-05 18:49:00 | Politics
+ Fish evade anglers by evolving smaller..
+                                                                                  | 2002-07-05 23:21:19 | 2002-07-05 23:21:19 | Politics
+ Sumerian Astronomy?
+                                                                                  | 2002-07-06 00:01:46 | 2005-04-11 22:29:40 | The Lounge
+ The History of BASIC
+                                                                                  | 2002-07-06 01:12:19 | 2003-05-08 17:27:36 | Computer Science
+
+
+
+
+2. 
+
+Query: 
+
+SELECT
+   forum_id,
+   name,
+   AVG(last_post - start_date) AS diff 
+FROM
+   topics 
+   JOIN
+      forums 
+      ON topics.forum_id = forums.id 
+GROUP BY
+   forum_id,
+   name 
+ORDER BY
+   diff DESC;
+
+
+Results:
+
+forum_id |                     name                      |           diff
+----------+-----------------------------------------------+--------------------------
+       88 | Mathematics Tutorials                         | 1816 days 12:08:05
+       84 | Interview Team                                | 586 days 26:39:55.5
+       42 | Voting Booth                                  | 383 days 21:33:25
+       93 | SmarterThanThat Videos                        | 301 days 12:28:32.5
+       40 | Challenges                                    | 217 days 21:17:58.894737
+       24 | Forum Announcements                           | 189 days 15:33:36.907143
+       85 | Ground Up Threads                             | 178 days 29:51:37.5
+       79 | Projects                                      | 176 days 26:17:26.034722
+       90 | Book Talk                                     | 111 days 28:35:23.983739
+       71 | Current Media Discussion                      | 110 days 21:40:54
+       27 | Ethics                                        | 109 days 25:16:14.285326
+       51 | Project Discussions                           | 108 days 16:18:13.333333
+       45 | Brain Teasers and Puzzles                     | 108 days 16:09:56.699774
+
+
+
+
+
+3. 
+
+SELECT
+   author_id,
+   COUNT(*) AS post_counts 
+FROM
+   posts 
+GROUP BY
+   author_id 
+ORDER BY
+   post_counts DESC;
+
+
+Result:
+
+ author_id | post_counts 
+-----------+-------------
+       239 |       26317
+       197 |       19419
+        27 |       16410
+       305 |       15713
+       443 |       14629
+      4764 |       14296
+       716 |       13049
+         0 |       12971
+       570 |       10645
+      1445 |       10364
+       953 |        9230
+
+
+
+
+4.
+
+CREATE TABLE forum10 AS 
+SELECT
+   forum_id,
+   COUNT(posts) AS over10 
+FROM
+   topics 
+WHERE
+   posts >= 10 
+GROUP BY
+   forum_id;
+WITH postcount AS 
+(
+   SELECT
+      forum_id,
+      COUNT(posts) AS num_posts 
+   FROM
+      topics 
+   GROUP BY
+      forum_id
+)
+SELECT
+   postcount.forum_id,
+   round(over10::NUMERIC / num_posts::NUMERIC, 2) AS proportion 
+FROM
+   postcount 
+   JOIN
+      forum10 
+      ON postcount.forum_id = forum10.forum_id 
+ORDER BY
+   proportion DESC;
+
+Results:
+
+forum_id | proportion 
+----------+------------
+       75 |       1.00
+       87 |       1.00
+       71 |       1.00
+       96 |       0.83
+       84 |       0.75
+       54 |       0.67
+       91 |       0.67
+       31 |       0.64
+       76 |       0.63
+       42 |       0.62
+       50 |       0.60
+       27 |       0.59
+      103 |       0.58
+       34 |       0.56
+       83 |       0.53
+       40 |       0.53
+      107 |       0.53
+
+
+
+
+5. 
+CREATE TABLE locks AS 
+SELECT
+   pid,
+   state 
+FROM
+   posts 
+   JOIN
+      topics 
+      ON posts.topic_id = topics.tid;
+SELECT
+   COUNT(*) 
+FROM
+   locks 
+WHERE
+   state = 'closed';
+SELECT
+   COUNT(*) 
+FROM
+   locks 
+WHERE
+   state = 'open';
+
+
+Results:
+Avg. closed: 53034
+Avg. open: 703195
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
