@@ -7,11 +7,11 @@ All the assignments are tagged with relevant topical designations to
 help you find problems of interest. Five special tags represent broad 
 groupings that match key course themes. These are:
 
-1. =Statistical Computing= algorithms, data structures, recursion, object-oriented programming
-2. =Statistical Modeling=, misc. projects involving statistical modeling
+1. =Statistical Computing= Algorithms, data structures, recursion, object-oriented programming
+2. =Statistical Modeling= Misc. projects involving statistical modeling
 3. =Machine Learning and NLP= Machine learning and NLP projects including dimensionality reduction, unsupervised, and supervised learning
-4. =Economics Projects=, various economics projects from my BYU undergrad
-5. =SQL= SQL Practices
+4. =Economics Projects= Various economics projects from my BYU undergrad
+5. =SQL= SQL Practice and Challenges
 
 *** Statistical Computing
 
