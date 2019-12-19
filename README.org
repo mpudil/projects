@@ -11,7 +11,7 @@ groupings that match key course themes. These are:
 2. =Statistical Modeling= Misc. projects involving statistical modeling
 3. =Machine Learning and NLP= Machine learning and NLP projects including dimensionality reduction, unsupervised, and supervised learning
 4. =Economics Projects= Various economics projects from my BYU undergrad
-5. =SQL= SQL Practice and Challenges
+5. =SQL= SQL practice and challenges
 
 *** Statistical Computing
 
