@@ -37,7 +37,7 @@ groupings that match key course themes. These are:
     | [[file:FoodExpenditures.R][food-expenditures]]  |  R | GLS, Fixing Heteroskedasticity| Estimate effect of income on eating out |
     | [[file:GOT.R][game-of-thrones]]  |  R | Time Series (SARIMA) | Predict Game of Thrones viewership |
     | [[file:Grades.sas][student-grades]]  |  SAS | Data Summarization in SAS| Create reports for student grades in SAS |
-    | [[file:Land_Analysis.R][Land_Analysis]]  |  R | Spatial Modeling, Imputation | Determine effects of increased temperature; Create and map temperature at locations impeded by cloud coverage
+    | [[file:Land_Analysis.R][land-analysis]]  |  R | Spatial Modeling, Imputation | Determine effects of increased temperature; Create and map temperature at locations impeded by cloud coverage
     | [[file:STEM.R][stem]] | R | Logistic mixed-effects, ROC | Determine influencers of whether or not students remain in STEM majors |
     | [[file:armd_analysis.R][macular-degeneration]]  |  R | Longitudinal MLR, optim | Determine causes of age-related macular degeneration |
     | [[file:heart_disease.R][myocardial-infarcation]]  |  R | GLM, ROC/AUC| Determine causes of Myocardial Infarcation |
