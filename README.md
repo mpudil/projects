@@ -2,11 +2,11 @@
 This repository includes research projects I have worked on as a master's student in statistics and data science at CMU or as a statisics and economics double major at BYU. The following languages are used in the repository: Python, R, SAS, Stata, and SQL.
 
 
-#### [https://github.com/mpudil/statistics-and-econ-projects/tree/master/Avalanche](Avalanches)
+#### [Avalanches](https://github.com/mpudil/statistics-and-econ-projects/tree/master/Avalanche)
 Poisson regression performed in R and SAS to model the number of avalanches in Utah over several years.
 
 
-#### [https://github.com/mpudil/statistics-and-econ-projects/tree/master/Diamonds](Diamonds)
+#### [Diamonds](https://github.com/mpudil/statistics-and-econ-projects/tree/master/Diamonds)
 
 
 
