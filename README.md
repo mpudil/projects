@@ -1,5 +1,21 @@
 # Statistics Research Projects
-These are other research projects I have worked on as a statisics and economics double major at BYU. The code in this repository is written primarily in R, but includes SAS and Proc SQL commands as well.
+This repository includes research projects I have worked on as a master's student in statistics and data science at CMU or as a statisics and economics double major at BYU. The following languages are used in the repository: Python, R, SAS, Stata, and SQL.
+
+
+#### [https://github.com/mpudil/statistics-and-econ-projects/tree/master/Avalanche](Avalanches)
+Poisson regression performed in R and SAS to model the number of avalanches in Utah over several years.
+
+
+#### [https://github.com/mpudil/statistics-and-econ-projects/tree/master/Diamonds](Diamonds)
+
+
+
+
+
+
+
+
+
 
 #### Age-Related Macular Degeneration (ARMD) Analysis
 Uses a GLS model which accounts for within-subject correlation to determine (1)if patients on the interferon-alpha treatment have a significantly higher vision score after a year than those not on the treatment,(2) if the treatment stops vision loss over time, and (3) if patients on/off the drug with a baseline of 29 are at risk of going legally blind. Optimization techniques also explored using the optim() function. 
@@ -7,8 +23,7 @@ Uses a GLS model which accounts for within-subject correlation to determine (1)i
 #### Arches
 Predictions of visitors to Arches National Park, using a seasonal ARIMA model
 
-#### Avalanches
-Poisson regression performed in SAS and R to model the number of avalanches in Utah over several years.
+
 
 #### Birthweight Analysis
 
