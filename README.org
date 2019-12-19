@@ -46,7 +46,7 @@ groupings that match key course themes. These are:
 
 *** Machine Learning and NLP
 
-    | Assignment        | Language(s) | Method(s) | Description                                                 |
+    | Project        | Language(s) | Method(s) | Description                                                 |
     |-------------------+--------+-------------------------------------------------------------|
     | [[file:Stylometrics][stylometrics-book-mormon]] |  R | PCA, Random Forest | Determine distinguishability of authors in Book of Mormon
     | [[file:information-retrieval-bow][information-retrieval-bow]] |  R | NLP, PCA| Use bag of words to search and cluster text data |
@@ -61,7 +61,7 @@ groupings that match key course themes. These are:
     
 *** Economics Projects
 
-    | Assignment          | Language(s) | Method(s) | Description                                                           |
+    | Project          | Language(s) | Method(s) | Description                                                           |
     |---------------------+--------+-----------------------------------------------------------------------|
     | [[file:Statistics-homeschooling][statistics-pedagogy]]  |  Stata | Logistic Regression, fixed effects | Determine effect of maternal education on odds of child being homeschooled (working paper) |
     | [[file:socioeconomics][socioeconomics-pci]]  |  R | Linear Regression, feature engineering | Determine socioeconomic factors that affect per-capita income  |
@@ -72,7 +72,7 @@ groupings that match key course themes. These are:
 
 *** SQL
 
-    | Assignment                | Description (all in SQL)                                                    |
+    | Project                | Description (all in SQL)                                                    |
     |---------------------------+--------+--------------------------------------------------------------------|
     | [[file:dealing-with-CRUD][CRUD]]  |  Create, Read, Update, and Delete ("CRUD") in SQL |
     | [[file:sfn][sfn]]  |  Perform calculations and work with data from ScienceForums.net in SQL |
