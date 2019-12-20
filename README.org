@@ -71,7 +71,7 @@ groupings that match key themes. These are:
    
 *** SQL
 
-    | Project                | Description (all in SQL)                                                    |
+    | Project                | Description (all in SQL)          |  Date   |
     |---------------------------+--------+--------------------------------------------------------------------|
     | [[file:dealing-with-CRUD][CRUD]]  |  Create, Read, Update, and Delete ("CRUD") in SQL |  Oct 2019
     | [[file:sfn][Science Forums Querying]]  |  Perform calculations and work with data from ScienceForums.net in SQL |   Nov 2019
