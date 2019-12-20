@@ -16,6 +16,7 @@ Of the following projects, my favorites are:
     | [[file:Stylometrics][Stylometrics]] |  R | NLP, PCA, Random Forest | Determine distinguishability of authors in Book of Mormon |
     
 
+All projects:
 
 *** Statistical Computing
 
