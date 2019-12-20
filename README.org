@@ -60,7 +60,7 @@ groupings that match key themes. These are:
 
 *** Economics Projects
 
-    | Project          | Language(s) | Method(s) | Description                                   |   Date   |
+    | Project          | Language(s) | Method(s) | Description                                   |   Date   
     |---------------------+--------+-----------------------------------------------------------------------|
     
    | [[file:socioeconomics][Socioeconomics]]  |  R | Linear regression, feature engineering | Determine socioeconomic factors that affect per-capita income  |  Sep 2018  
