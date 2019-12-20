@@ -6,7 +6,7 @@ This repository is a (more-or-less) comprehensive list of the projects I have wo
 2. =Statistical Modeling= Projects involving statistical modeling
 3. =Machine Learning and NLP= Machine learning and NLP projects: constructing ML algorithms from scratch, dimensionality reduction, unsupervised, and supervised learning.
 4. =Economics Projects= Various projects related to economics
-5. =SQL= SQL practice and challenges
+5. =SQL= SQL practice and challenges. Note that most of my experience with SQL comes from my internship with OrderBoard in summer 2019.
 
 Of the following projects, my favorites are:
     | Project | Language(s) | Method(s) | Description   |
