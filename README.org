@@ -9,7 +9,7 @@ This repository is a (more-or-less) comprehensive list of the projects I have wo
 5. =SQL= SQL practice and challenges
 
 Of the following projects, my favorites are:
- | Project | Language(s) | Method(s) | Description   
+    | Project | Language(s) | Method(s) | Description   |
     |------------+--------+---------------------------------------------|
     | [[https://github.com/mpudil/random-forest][Random Forest]] |  Python, SQL (via psycopg2) | Random Forest, object-oriented programming | Create Python Random Forests and SQL decision trees from scratch 
     | [[file:sound-of-music][Sound of Music]]  |  R | Mixed models| Determine factors that affect how people interpret music genre | 
