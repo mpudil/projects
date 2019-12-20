@@ -26,9 +26,9 @@ groupings that match key themes. These are:
 
     | Project       | Language(s) | Method(s) | Description | 
     |------------------+--------+-------------------------------------------------------|
-    | [[file:Avalanche][Avalanche]]  |  R, SAS | Poisson Regression | Model the number of avalanches in Utah |
-     | [[file:Birthweight_Analysis.R][Birthweights]]  |  R | Linear Regression, Cross Validation | Determine factors that lead to a change in baby birthweight|
-     | [[file:Cardio.R][Cardiovascular Health]]  |  R | Longitudinal Models| Determine causes of Tachycardia | 
+    | [[file:Avalanche][Avalanche]]  |  R, SAS | Poisson Regression | Model the number of avalanches in Utah 
+    | [[file:Birthweight_Analysis.R][Birthweights]]  |  R | Linear Regression, Cross Validation | Determine factors that lead to a change in baby birthweight|
+    | [[file:Cardio.R][Cardiovascular Health]]  |  R | Longitudinal Models| Determine causes of Tachycardia | 
     | [[file:Climate_Analysis.R][Climate Change]]  |  R | Time Series (SARIMA)| Predict climate change for next 5 years |
     | [[file:FoodExpenditures.R][Food Expenditures]]  |  R | GLS, Fixing Heteroskedasticity| Estimate effect of income on eating out | 
     | [[file:GOT.R][Game of Thrones]]  |  R | Time Series (SARIMA) | Predict Game of Thrones viewership | 
