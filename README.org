@@ -26,25 +26,24 @@ groupings that match key themes. These are:
 
     | Project       | Language(s) | Method(s) | Description | Date |
     |------------------+--------+-------------------------------------------------------|
-    | [[file:Avalanche][Avalanche]]  |  R, SAS | Poisson Regression | Model the number of avalanches in Utah | Jan 2019
-    | [[file:Cardio.R][Cardiovascular Health]]  |  R | Longitudinal models| Determine causes of Tachycardia | Nov 2018
-    | [[file:Birthweight_Analysis.R][Birthweights]]  |  R | Linear regression, cross validation | Determine factors that lead to a change in baby birthweight| Sep 2018
     
-    | [[file:Climate_Analysis.R][Climate Change]]  |  R | Time series (SARIMA)| Predict climate change for next 5 years | Feb 2019 |
+    | [[file:sound-of-music][Sound of Music]]  |  R | Mixed models| Determine factors that affect how people interpret music genre | Nov 2019 |
+     | [[file:particulate-matter][Particulate Matter]] | R | Logistic mixed-effects, ROC | Determine effectiveness of particulate matter detectors | Apr 2019 |
+    | [[file:armd_analysis.R][Macular Degeneration]]  |  R | Longitudinal MLR, optim | Determine causes of age-related macular degeneration | Apr 2019 |
+    | [[file:Land_Analysis.R][Land Analysis]]  |  R | Spatial modeling, imputation | Determine effects of increased temperature; Create and map temperature at locations impeded by cloud coverage | Mar 2019 |
     | [[file:FoodExpenditures.R][Food Expenditures]]  |  R | GLS, fixing heteroskedasticity| Estimate effect of income on eating out | Mar 2019 |
+    | [[file:Statistics-Pedagogy][Statistics Pedagogy]]  |  R | GLS | Determine relevance of class activities on student grades | Feb 2019 |
     | [[file:GOT.R][Game of Thrones]]  |  R | Time series (SARIMA) | Predict Game of Thrones viewership | Feb 2019 |
     | [[file:Greenhouse][Greenhouse]] |  R, SAS | Linear regression | Determine effect of various gases on average global temperature | Feb 2019 | 
-    | [[file:Land_Analysis.R][Land Analysis]]  |  R | Spatial modeling, imputation | Determine effects of increased temperature; Create and map temperature at locations impeded by cloud coverage | Mar 2019 |
-    | [[file:armd_analysis.R][Macular Degeneration]]  |  R | Longitudinal MLR, optim | Determine causes of age-related macular degeneration | Feb 2019 |
-    | [[file:heart_disease.R][Myocardial Infarcation]]  |  R | GLM, ROC/AUC| Determine causes of Myocardial Infarcation | Nov 2018 |
-    | [[file:particulate-matter][Particulate Matter]] | R | Logistic mixed-effects, ROC | Determine effectiveness of particulate matter detectors | Apr 2019 |
-    | [[file:sound-of-music][Sound of Music]]  |  R | Mixed models| Determine factors that affect how people interpret music genre | Nov 2019 |
-    | [[file:Statistics-Pedagogy][Statistics Pedagogy]]  |  R | GLS | Determine relevance of class activities on student grades | Feb 2018 |
-    | [[file:STEM.R][STEM]] | R | Logistic mixed-effects, ROC | Determine influencers of whether or not students remain in STEM majors | Sep 2018 
+    | [[file:Climate_Analysis.R][Climate Change]]  |  R | Time series (SARIMA)| Predict climate change for next 5 years | Feb 2019 |
+    | [[file:Avalanche][Avalanche]]  |  R, SAS | Poisson Regression | Model the number of avalanches in Utah | Jan 2019
     | [[file:Grades.sas][Student Grades]]  |  SAS | Data summarization in SAS| Create reports for student grades in SAS | Dec 2018 |
+    | [[file:heart_disease.R][Myocardial Infarcation]]  |  R | GLM, ROC/AUC| Determine causes of Myocardial Infarcation | Nov 2018 |
+    | [[file:Cardio.R][Cardiovascular Health]]  |  R | Longitudinal models| Determine causes of Tachycardia | Nov 2018
+    | [[file:Birthweight_Analysis.R][Birthweights]]  |  R | Linear regression, cross validation | Determine factors that lead to a change in baby birthweight| Sep 2018
+    | [[file:STEM.R][STEM]] | R | Logistic mixed-effects, ROC | Determine influencers of whether or not students remain in STEM majors | Sep 2018 
     
-
-    
+   
     
 
 *** Machine Learning and NLP
