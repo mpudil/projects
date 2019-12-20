@@ -24,23 +24,24 @@ groupings that match key themes. These are:
 
 *** Statistical Modeling
 
-    | Project       | Language(s) | Method(s) | Description |
+    | Project       | Language(s) | Method(s) | Description | Includes Full Research Paper |
     |------------------+--------+-------------------------------------------------------|
-    | [[file:Avalanche][Avalanche]]  |  R, SAS | Poisson Regression | Model the number of avalanches in Utah |
-    | [[file:Greenhouse][Greenhouse]] |  R, SAS | Linear Regression | Determine effect of various gases on average global temperature |
-    | [[file:ScottishHills][Scottish Hill Racing]] | R, SAS | Identifying Outliers | Analyze Scottish Hill racing data|
-    | [[file:Statistics-Pedagogy][Statistics Pedagogy]]  |  R | GLS | Determine relevance of class activities on student grades |
-    | [[file:sound-of-music][Sound of Music]]  |  R | Mixed Models| Determine factors that affect how people interpret music genre |
-    | [[file:Birthweight_Analysis.R][Birthweights]]  |  R | Linear Regression, Cross Validation | Determine factors that lead to a change in baby birthweight|
-    | [[file:Cardio.R][Cardiovascular Health]]  |  R | Longitudinal Models| Determine causes of Tachycardia |
-    | [[file:Climate_Analysis.R][Climate Change]]  |  R | Time Series (SARIMA)| Predict climate change for next 5 years |
-    | [[file:FoodExpenditures.R][Food Expenditures]]  |  R | GLS, Fixing Heteroskedasticity| Estimate effect of income on eating out |
-    | [[file:GOT.R][Game of Thrones]]  |  R | Time Series (SARIMA) | Predict Game of Thrones viewership |
-    | [[file:Grades.sas][Student Grades]]  |  SAS | Data summarization in SAS| Create reports for student grades in SAS |
-    | [[file:Land_Analysis.R][Land Analysis]]  |  R | Spatial Modeling, Imputation | Determine effects of increased temperature; Create and map temperature at locations impeded by cloud coverage
-    | [[file:STEM.R][STEM]] | R | Logistic mixed-effects, ROC | Determine influencers of whether or not students remain in STEM majors |
-    | [[file:armd_analysis.R][Macular Degeneration]]  |  R | Longitudinal MLR, optim | Determine causes of age-related macular degeneration |
-    | [[file:heart_disease.R][Myocardial Infarcation]]  |  R | GLM, ROC/AUC| Determine causes of Myocardial Infarcation |
+    | [[file:Avalanche][Avalanche]]  |  R, SAS | Poisson Regression | Model the number of avalanches in Utah | No |
+    | [[file:Greenhouse][Greenhouse]] |  R, SAS | Linear Regression | Determine effect of various gases on average global temperature | No| 
+    | [[file:ScottishHills][Scottish Hill Racing]] | R, SAS | Identifying Outliers | Analyze Scottish Hill racing data|No|
+    | [[file:Statistics-Pedagogy][Statistics Pedagogy]]  |  R | GLS | Determine relevance of class activities on student grades | Yes|
+    | [[file:sound-of-music][Sound of Music]]  |  R | Mixed Models| Determine factors that affect how people interpret music genre | Yes|
+    | [[file:Birthweight_Analysis.R][Birthweights]]  |  R | Linear Regression, Cross Validation | Determine factors that lead to a change in baby birthweight| No |
+    | [[file:Cardio.R][Cardiovascular Health]]  |  R | Longitudinal Models| Determine causes of Tachycardia | No|
+    | [[file:Climate_Analysis.R][Climate Change]]  |  R | Time Series (SARIMA)| Predict climate change for next 5 years | No| 
+    | [[file:FoodExpenditures.R][Food Expenditures]]  |  R | GLS, Fixing Heteroskedasticity| Estimate effect of income on eating out | No|
+    | [[file:GOT.R][Game of Thrones]]  |  R | Time Series (SARIMA) | Predict Game of Thrones viewership | No|
+    | [[file:Grades.sas][Student Grades]]  |  SAS | Data summarization in SAS| Create reports for student grades in SAS | No|
+    | [[file:Land_Analysis.R][Land Analysis]]  |  R | Spatial Modeling, Imputation | Determine effects of increased temperature; Create and map temperature at locations impeded by cloud coverage | No|
+    | [[file:particulate-matter][Particulate Matter]] | R | Logistic mixed-effects, ROC | Determine effectiveness of particulate matter detectors | Yes |
+    | [[file:STEM.R][STEM]] | R | Logistic mixed-effects, ROC | Determine influencers of whether or not students remain in STEM majors | No |
+    | [[file:armd_analysis.R][Macular Degeneration]]  |  R | Longitudinal MLR, optim | Determine causes of age-related macular degeneration | No |
+    | [[file:heart_disease.R][Myocardial Infarcation]]  |  R | GLM, ROC/AUC| Determine causes of Myocardial Infarcation | No |
     
     
 
