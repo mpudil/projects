@@ -46,7 +46,7 @@ groupings that match key course themes. These are:
 
 *** Machine Learning and NLP
 
-    | Project        | Language(s)       | Method(s)           | Description                                               |
+    | Project        | Language(s)          | Method(s)                   | Description                                               |
     |-------------------+--------+-------------------------------------------------------------|
     | [[https://github.com/mpudil/random-forest][Random Forest]] |  Python, SQL (via psycopg2) | NLP, PCA, Random Forest | Determine distinguishability of authors in Book of Mormon |
     | [[file:Stylometrics][Stylometrics]] |  R | NLP, PCA, Random Forest | Determine distinguishability of authors in Book of Mormon |
