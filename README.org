@@ -48,14 +48,14 @@ groupings that match key course themes. These are:
 
     | Project        | Language(s) | Method(s) | Description                                                 |
     |-------------------+--------+-------------------------------------------------------------|
+       | [[https://github.com/mpudil/random-forest][Random Forest]]  |  Python, SQL (via psycopg2) | Random Forest, object-oriented programming| Create binary Random Forests and SQL decision trees from scratch | 
     | [[file:Stylometrics][Stylometrics]] |  R | NLP, PCA, Random Forest | Determine distinguishability of authors in Book of Mormon
     | [[file:information-retrieval-bow][Information Retrieval]] |  R | NLP, PCA| Use bag of words to search and cluster text data |
     | [[file:machine-learning/Costa_Rica_Poverty.py][Poverty]] |  Python | Logistic Regression, Naive Bayes, Random Forest, K-Nearest Neighbors | Determine causes of poverty in Costa Rica
     | [[file:machine-learning/Dimensionality_Reduction.py][Dimensionality Reduction]]  |  Python | Hierarchical Clustering, t-SNE, Clustering| Classify written numbers (MNIST) |
     | [[file:machine-learning/HousingPrices.py][Housing Prices]]  |  Python | SGD, Lasso, Kernel Ridge, K Nearest Neighbors, Feature engineering, train-test-split| Predict Housing Prices (Supervised learning) |
+
     
-    
-**** See the "random-forest" repository [[https://github.com/mpudil/random-forest][here]] to view the code for creating Random Forests from scratch, and SQL decision trees.
     
     
     
