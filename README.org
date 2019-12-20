@@ -55,7 +55,7 @@ groupings that match key course themes. These are:
     | [[file:machine-learning/HousingPrices.py][Housing Prices]]  |  Python | SGD, Lasso, Kernel Ridge, K Nearest Neighbors, Feature engineering, train-test-split| Predict Housing Prices (Supervised learning) |
     
     
-**** See the "random-forest" repository [[github.com/mpudil/random-forest][here]] to view the code for creating Random Forests from scratch, and SQL decision trees.
+**** See the "random-forest" repository [[https://github.com/mpudil/random-forest][here]] to view the code for creating Random Forests from scratch, and SQL decision trees.
     
     
     
