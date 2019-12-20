@@ -17,27 +17,27 @@ groupings that match key themes. These are:
 
     | Project | Language(s) | Method(s) | Description   |
     |------------+--------+---------------------------------------------|
-    | [[file:closest-pair][Closest Pair]]   |  R | Divide and Conquer | Determine closest pair of points from given set |
-    | [[file:das-blinkenlights][Das Blinkenlights]]   |  R | Data Structures, Recursion, command line wrapper | Modular arithmetic problem with cows |
+    | [[file:closest-pair][Closest Pair]]   |  R | Divide and conquer | Determine closest pair of points from given set |
+    | [[file:das-blinkenlights][Das Blinkenlights]]   |  R | Data structures, recursion, command line wrapper | Modular arithmetic problem with cows |
     | [[file:tree-builder][Tree Builder]]      |   R | Recursion, object-oriented programming| Build binary classification tree |
-    | [[file:web-scraping][Web Scraping]]      |   R |Web Scraping, Regular Expressions, automatic e-mail| Web-scrape Walmart and Glassdoor websites |
+    | [[file:web-scraping][Web Scraping]]      |   R |Web-scraping, regular expressions, automatic e-mail| Web-scrape Walmart and Glassdoor websites |
 
 *** Statistical Modeling
 
     | Project       | Language(s) | Method(s) | Description | 
     |------------------+--------+-------------------------------------------------------|
     | [[file:Avalanche][Avalanche]]  |  R, SAS | Poisson Regression | Model the number of avalanches in Utah 
-    | [[file:Birthweight_Analysis.R][Birthweights]]  |  R | Linear Regression, Cross Validation | Determine factors that lead to a change in baby birthweight|
-    | [[file:Cardio.R][Cardiovascular Health]]  |  R | Longitudinal Models| Determine causes of Tachycardia | 
-    | [[file:Climate_Analysis.R][Climate Change]]  |  R | Time Series (SARIMA)| Predict climate change for next 5 years |
-    | [[file:FoodExpenditures.R][Food Expenditures]]  |  R | GLS, Fixing Heteroskedasticity| Estimate effect of income on eating out | 
-    | [[file:GOT.R][Game of Thrones]]  |  R | Time Series (SARIMA) | Predict Game of Thrones viewership | 
-    | [[file:Greenhouse][Greenhouse]] |  R, SAS | Linear Regression | Determine effect of various gases on average global temperature | 
-    | [[file:Land_Analysis.R][Land Analysis]]  |  R | Spatial Modeling, Imputation | Determine effects of increased temperature; Create and map temperature at locations impeded by cloud coverage | 
+    | [[file:Birthweight_Analysis.R][Birthweights]]  |  R | Linear regression, cross validation | Determine factors that lead to a change in baby birthweight|
+    | [[file:Cardio.R][Cardiovascular Health]]  |  R | Longitudinal models| Determine causes of Tachycardia | 
+    | [[file:Climate_Analysis.R][Climate Change]]  |  R | Time series (SARIMA)| Predict climate change for next 5 years |
+    | [[file:FoodExpenditures.R][Food Expenditures]]  |  R | GLS, fixing heteroskedasticity| Estimate effect of income on eating out | 
+    | [[file:GOT.R][Game of Thrones]]  |  R | Time series (SARIMA) | Predict Game of Thrones viewership | 
+    | [[file:Greenhouse][Greenhouse]] |  R, SAS | Linear regression | Determine effect of various gases on average global temperature | 
+    | [[file:Land_Analysis.R][Land Analysis]]  |  R | Spatial modeling, imputation | Determine effects of increased temperature; Create and map temperature at locations impeded by cloud coverage | 
     | [[file:armd_analysis.R][Macular Degeneration]]  |  R | Longitudinal MLR, optim | Determine causes of age-related macular degeneration | 
     | [[file:heart_disease.R][Myocardial Infarcation]]  |  R | GLM, ROC/AUC| Determine causes of Myocardial Infarcation | 
     | [[file:particulate-matter][Particulate Matter]] | R | Logistic mixed-effects, ROC | Determine effectiveness of particulate matter detectors | 
-    | [[file:sound-of-music][Sound of Music]]  |  R | Mixed Models| Determine factors that affect how people interpret music genre | 
+    | [[file:sound-of-music][Sound of Music]]  |  R | Mixed models| Determine factors that affect how people interpret music genre | 
     | [[file:Statistics-Pedagogy][Statistics Pedagogy]]  |  R | GLS | Determine relevance of class activities on student grades | 
     | [[file:STEM.R][STEM]] | R | Logistic mixed-effects, ROC | Determine influencers of whether or not students remain in STEM majors | 
     | [[file:Grades.sas][Student Grades]]  |  SAS | Data summarization in SAS| Create reports for student grades in SAS | 
@@ -50,10 +50,10 @@ groupings that match key themes. These are:
 
     | Project        | Language(s)          | Method(s)                   | Description                                               |
     |-------------------+--------+-------------------------------------------------------------|
-    | [[file:machine-learning/Dimensionality_Reduction.py][Dimensionality Reduction]]  |  Python | Hierarchical Clustering, t-SNE, Clustering| Classify written numbers (MNIST) 
-    | [[file:machine-learning/HousingPrices.py][Housing Prices]]  |  Python | SGD, Lasso, Kernel Ridge, K Nearest Neighbors, Feature engineering, train-test-split| Predict Housing Prices (Supervised learning) |
+    | [[file:machine-learning/Dimensionality_Reduction.py][Dimensionality Reduction]]  |  Python | Hierarchical clustering, t-SNE, clustering| Classify written numbers (MNIST) 
+    | [[file:machine-learning/HousingPrices.py][Housing Prices]]  |  Python | SGD, Lasso, Kernel Ridge, K Nearest Neighbors, feature engineering, train-test-split| Predict Housing Prices (Supervised learning) |
     | [[file:information-retrieval-bow][Information Retrieval]] |  R | NLP, PCA| Use bag of words to search and cluster text data |
-    | [[file:machine-learning/Costa_Rica_Poverty.py][Poverty]] |  Python | Logistic Regression, Naive Bayes, Random Forest, K-Nearest Neighbors | Determine causes of poverty in Costa Rica
+    | [[file:machine-learning/Costa_Rica_Poverty.py][Poverty]] |  Python | Logistic regression, Naive Bayes, Random Forest, K-Nearest Neighbors | Determine causes of poverty in Costa Rica
     | [[https://github.com/mpudil/random-forest][Random Forest]] |  Python, SQL (via psycopg2) | Random Forest, object-oriented programming | Create Python Random Forests and SQL decision trees from scratch |
     | [[file:Stylometrics][Stylometrics]] |  R | NLP, PCA, Random Forest | Determine distinguishability of authors in Book of Mormon |
     
@@ -65,8 +65,8 @@ groupings that match key themes. These are:
 
     | Project          | Language(s) | Method(s) | Description                                                           |
     |---------------------+--------+-----------------------------------------------------------------------|
-    | [[file:homeschooling][Cost of Homeschooling]]  |  Stata | Logistic Regression, fixed effects | Determine effect of maternal education on odds of child being homeschooled (working paper) |
-    | [[file:socioeconomics][Socioeconomics]]  |  R | Linear Regression, feature engineering | Determine socioeconomic factors that affect per-capita income  |
+    | [[file:homeschooling][Cost of Homeschooling]]  |  Stata | Logistic regression, fixed effects | Determine effect of maternal education on odds of child being homeschooled (working paper) |
+    | [[file:socioeconomics][Socioeconomics]]  |  R | Linear regression, feature engineering | Determine socioeconomic factors that affect per-capita income  |
     
         
         
