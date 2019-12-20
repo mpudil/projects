@@ -24,7 +24,7 @@ groupings that match key themes. These are:
 
 *** Statistical Modeling
 
-    | Project       | Language(s)    | Method(s)        | Description         | Date      |
+    | Project | Language(s) | Method(s) | Description   | Date |
     |------------------+--------+-------------------------------------------------------|
     
     | [[file:sound-of-music][Sound of Music]]  |  R | Mixed models| Determine factors that affect how people interpret music genre | Nov 2019  
@@ -48,7 +48,7 @@ groupings that match key themes. These are:
 
 *** Machine Learning and NLP
 
-    | Project        | Language(s)          | Method(s)            | Description                |  Date   |
+    | Project | Language(s) | Method(s) | Description   | Date |
     |-------------------+--------+-------------------------------------------------------------|
     | [[https://github.com/mpudil/random-forest][Random Forest]] |  Python, SQL (via psycopg2) | Random Forest, object-oriented programming | Create Python Random Forests and SQL decision trees from scratch | Dec 2019
     | [[file:Stylometrics][Stylometrics]] |  R | NLP, PCA, Random Forest | Determine distinguishability of authors in Book of Mormon | Dec 2019
@@ -60,7 +60,7 @@ groupings that match key themes. These are:
 
 *** Economics Projects
 
-    | Project          | Language(s) | Method(s) | Description                                   |   Date   
+    | Project | Language(s) | Method(s) | Description   | Date |
     |---------------------+--------+-----------------------------------------------------------------------|
     
    | [[file:socioeconomics][Socioeconomics]]  |  R | Linear regression, feature engineering | Determine socioeconomic factors that affect per-capita income  |  Sep 2018  
