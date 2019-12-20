@@ -1,5 +1,6 @@
 #+TITLE: Statistics, Machine Learning, and Economics Projects
 
+
 For an organized list of all assignments, with information and links, see the
 tables below.
 
@@ -17,8 +18,8 @@ groupings that match key themes. These are:
 
     | Project | Language(s) | Method(s) | Description   | Date |
     |------------+--------+---------------------------------------------|
-    | [[file:das-blinkenlights][Das Blinkenlights]]   |  R | Data structures, recursion, command line wrapper | Modular arithmetic problem with cows | Nov 2019 
-    | [[file:closest-pair][Closest Pair]]   |  R | Divide and conquer | Determine closest pair of points from given set | Oct 2019
+    | [[file:closest-pair][Closest Pair]]   |  R | Divide and conquer | Determine closest pair of points from given set | Nov 2019
+    | [[file:das-blinkenlights][Das Blinkenlights]]   |  R | Data structures, recursion, command line wrapper | Modular arithmetic problem with cows | Oct 2019 
     | [[file:tree-builder][Tree Builder]]      |   R | Recursion, object-oriented programming| Build binary classification tree | Sep 2019 |
     | [[file:web-scraping][Web Scraping]]      |   R |Web-scraping, regular expressions, automatic e-mail| Web-scrape Walmart and Glassdoor websites | July 2019 |
 
