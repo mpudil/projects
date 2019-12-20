@@ -27,8 +27,8 @@ groupings that match key themes. These are:
     | Project       | Language(s) | Method(s) | Description | Date |
     |------------------+--------+-------------------------------------------------------|
     
-    | [[file:sound-of-music][Sound of Music]]  |  R | Mixed models| Determine factors that affect how people interpret music genre | Nov 2019 |
-     | [[file:particulate-matter][Particulate Matter]] | R | Logistic mixed-effects, ROC | Determine effectiveness of particulate matter detectors | Apr 2019 |
+    | [[file:sound-of-music][Sound of Music]]  |  R | Mixed models| Determine factors that affect how people interpret music genre | Nov 2019 
+     | [[file:particulate-matter][Particulate Matter]] | R | Logistic mixed-effects, ROC | Determine effectiveness of particulate matter detectors | Apr 2019 
     | [[file:armd_analysis.R][Macular Degeneration]]  |  R | Longitudinal MLR, optim | Determine causes of age-related macular degeneration | Apr 2019 |
     | [[file:Land_Analysis.R][Land Analysis]]  |  R | Spatial modeling, imputation | Determine effects of increased temperature; Create and map temperature at locations impeded by cloud coverage | Mar 2019 |
     | [[file:FoodExpenditures.R][Food Expenditures]]  |  R | GLS, fixing heteroskedasticity| Estimate effect of income on eating out | Mar 2019 |
