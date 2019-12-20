@@ -63,7 +63,7 @@ groupings that match key themes. These are:
 
     | Project | Language(s) | Method(s) | Description   | Date | Includes Paper 
     |---------------------+--------+-----------------------------------------------------------------------|
-   | [[file:socioeconomics][Per Capita Income]]  |  R | Linear regression, feature engineering | Determine socioeconomic factors that affect per-capita income  |  Sep 2019 | Yes 
+    | [[file:socioeconomics][Per Capita Income]]  |  R | Linear regression, feature engineering | Determine socioeconomic factors that affect per-capita income  |  Sep 2019 | Yes 
    | [[file:homeschooling][Cost of Homeschooling]]  |  Stata | Logistic regression, fixed effects | Determine effect of maternal education on odds of child being homeschooled (working paper) | Apr 2018  | Yes |
    | [[file:homeschooling][Crime and Divorce]]  |  Stata| Logistic regression, fixed effects | Determine effect of maternal education on odds of child being homeschooled (working paper) | Apr 2018  | Yes (paper only) |
     
