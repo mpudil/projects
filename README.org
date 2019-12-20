@@ -24,7 +24,7 @@ groupings that match key themes. These are:
 
 *** Statistical Modeling
 
-    | Project       | Language(s) | Method(s) | Description | Date |
+    | Project       | Language(s)    | Method(s)        | Description         | Date      |
     |------------------+--------+-------------------------------------------------------|
     
     | [[file:sound-of-music][Sound of Music]]  |  R | Mixed models| Determine factors that affect how people interpret music genre | Nov 2019  |
