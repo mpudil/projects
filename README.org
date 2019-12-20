@@ -80,11 +80,3 @@ groupings that match key themes. These are:
     | [[file:sfn][Science Forums Querying]]  |  Perform calculations and work with data from ScienceForums.net in SQL |
     
     
-    
-    
-    
-    
-    
-    
-    
-    
