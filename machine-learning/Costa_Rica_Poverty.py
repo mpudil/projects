@@ -1,16 +1,4 @@
 # %%
-'''
-# Mitchell Pudil
-# Homework 4: Costa Rica Poverty Classification
-'''
-
-# %%
-'''
-# 4.1 Cleaning the Data
-## 4.1.1 Importing Necessary Packages
-'''
-
-# %%
 # Importing for graphing and looking at data
 
 # Data manipulation
