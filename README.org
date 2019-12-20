@@ -1,4 +1,4 @@
-#+TITLE: Statistics and Economics Projects
+#+TITLE: Statistics, Machine Learning, and Economics Projects
 
 For an organized list of all assignments, with information and links, see the
 tables below.
