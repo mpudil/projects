@@ -1,8 +1,6 @@
 #+TITLE: Statistics, Machine Learning, and Economics Projects
 
-This repository is a more-or-less comprehensive list of the projects I have worked on as a student in statistics and data science at BYU and CMU since 2018. 
-
-All the projects are tagged with relevant topical designations. Five special tags represent broad groupings that match key themes. These are:
+This repository is a more-or-less comprehensive list of the projects I have worked on as a student in statistics and data science at BYU and CMU since 2018. All the projects are tagged with the following topical designations:
 
 1.  =Statistical Computing= Algorithms, data structures, recursion, object-oriented programming, web-scraping
 2. =Statistical Modeling= Projects involving statistical modeling
