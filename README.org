@@ -20,7 +20,7 @@ groupings that match key themes. These are:
     | [[file:closest-pair][Closest Pair]]   |  R | Divide and Conquer | Determine closest pair of points from given set |
     | [[file:das-blinkenlights][Das Blinkenlights]]   |  R | Data Structures, Recursion, command line wrapper | Modular arithmetic problem with cows |
     | [[file:tree-builder][Tree Builder]]      |   R | Recursion, object-oriented programming| Build binary classification tree |
-    | [[file:web-scraping][Web Scraping]]      |   R |Web Scraping, Regular Expressions| Web-scrape Walmart and Glassdoor websites |
+    | [[file:web-scraping][Web Scraping]]      |   R |Web Scraping, Regular Expressions, automatic e-mail| Web-scrape Walmart and Glassdoor websites |
 
 *** Statistical Modeling
 
