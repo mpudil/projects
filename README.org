@@ -48,7 +48,7 @@ groupings that match key themes. These are:
 
 *** Machine Learning and NLP
 
-    | Project        | Language(s)          | Method(s)            | Description                          |  Date  |
+    | Project        | Language(s)          | Method(s)            | Description                |  Date   |
     |-------------------+--------+-------------------------------------------------------------|
     | [[https://github.com/mpudil/random-forest][Random Forest]] |  Python, SQL (via psycopg2) | Random Forest, object-oriented programming | Create Python Random Forests and SQL decision trees from scratch | Dec 2019
     | [[file:Stylometrics][Stylometrics]] |  R | NLP, PCA, Random Forest | Determine distinguishability of authors in Book of Mormon | Dec 2019
