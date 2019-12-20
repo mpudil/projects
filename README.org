@@ -1,11 +1,11 @@
 #+TITLE: Statistics, Machine Learning, and Economics Projects
 
-This repository is a (more-or-less) comprehensive list of the projects I have worked on as a student in statistics and data science at BYU and CMU since 2018. All the projects are tagged with the following topical designations:
+This repository is a (more-or-less) comprehensive list of the projects I have worked on as a student in statistics and data science at BYU and CMU since 2017. All the projects are tagged with the following topical designations:
 
 1.  =Statistical Computing= Algorithms, data structures, recursion, object-oriented programming, web-scraping
 2. =Statistical Modeling= Projects involving statistical modeling
 3. =Machine Learning and NLP= Machine learning and NLP projects: constructing ML algorithms from scratch, dimensionality reduction, unsupervised, and supervised learning.
-4. =Economics Projects= Various projects related to economics
+4. =Economics Projects= Various projects related to economics at BYU, Cambridge, and CMU
 5. =SQL= SQL practice and challenges. Note that most of my experience with SQL comes from my internship with OrderBoard in summer 2019.
 
 Of the following projects, my favorites are:
