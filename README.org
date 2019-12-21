@@ -8,7 +8,7 @@ This repository is a (more-or-less) comprehensive list of the projects I have wo
 4. =Economics Projects= Various projects related to economics at BYU, Cambridge, and CMU
 5. =SQL= SQL practice and challenges. Note that most of my experience with SQL comes from my internship with OrderBoard in summer 2019.
 
-Of the following projects, my favorites are:
+Favorite recent projects:
     | Project | Language(s) | Method(s) | Description   |
     |------------+--------+---------------------------------------------|
     | [[https://github.com/mpudil/random-forest][Random Forest]] |  Python, SQL (via psycopg2) | Random Forest, object-oriented programming | Create Python Random Forests and SQL decision trees from scratch 
