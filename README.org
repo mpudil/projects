@@ -11,7 +11,7 @@ This repository is a (more-or-less) comprehensive list of the projects I have wo
 ** Favorite recent projects:
     | Project | Language(s) | Method(s) | Description   |
     |------------+--------+---------------------------------------------|
-    | [[https://github.com/mpudil/random-forest][Random Forest]] |  Python, SQL (via psycopg2) | Random Forest, object-oriented programming | Create Python Random Forests and SQL decision trees from scratch 
+    | [[https://github.com/mpudil/random-forest][Random Forest]] |  Python, SQL | Random Forest, object-oriented programming | Create Python Random Forests and SQL decision trees from scratch 
     | [[file:sound-of-music][Sound of Music]]  |  R | Mixed models| Determine factors that affect how people interpret music genre | 
     | [[file:Stylometrics][Stylometrics]] |  R | NLP, PCA, Random Forest | Determine distinguishability of authors in Book of Mormon |
     
