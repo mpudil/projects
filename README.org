@@ -55,9 +55,9 @@ This repository is a (more-or-less) comprehensive list of the projects I have wo
 
     | Project | Language(s) | Method(s) | Description   | Date | 
     |-------------------+--------+-------------------------------------------------------------|
-
-    | [[file:information-retrieval-bow][Information Retrieval]] |  R | NLP, PCA| Use bag of words to search and cluster text data | Oct 2019 |
     | [[file:Stylometrics][Stylometrics]] |  R | NLP, PCA, Random Forest | Determine distinguishability of authors in Book of Mormon | Dec 2019
+    | [[file:information-retrieval-bow][Information Retrieval]] |  R | NLP, PCA| Use bag of words to search and cluster text data | Oct 2019 |
+
     | [[file:machine-learning/Dimensionality_Reduction.py][Dimensionality Reduction]]  |  Python | Hierarchical clustering, t-SNE, clustering| Classify written numbers (MNIST) | Nov 2018
     | [[file:machine-learning/Costa_Rica_Poverty.py][Poverty]] |  Python | Logistic regression, Naive Bayes, Random Forest, K-Nearest Neighbors | Determine causes of poverty in Costa Rica | Nov 2018
     | [[file:machine-learning/HousingPrices.py][Housing Prices]]  |  Python | SGD, Lasso, Kernel Ridge, K Nearest Neighbors, feature engineering, train-test-split| Predict Housing Prices (Supervised learning) | Oct 2018
