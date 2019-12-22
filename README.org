@@ -12,7 +12,7 @@ This repository is a (more-or-less) comprehensive list of the projects I have wo
     | Project | Language(s) | Method(s) | Description   |
     |------------+--------+---------------------------------------------|
     | [[https://github.com/mpudil/random-forest][Random Forest]] |  Python, SQL | Random Forest, object-oriented programming | Create Python Random Forests and SQL decision trees from scratch 
-    | [[file:closest-pair][Closest Pair]]   |  R | Divide and conquer | Determine closest pair of points from given set | Nov 2019 | 
+    | [[file:closest-pair][Closest Pair]]   |  R | Divide and conquer | Determine closest pair of points from given set |
     | [[file:Stylometrics][Stylometrics]] |  R | NLP, PCA, Random Forest | Determine distinguishability of authors |
     
 
