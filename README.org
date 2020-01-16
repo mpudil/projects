@@ -60,7 +60,7 @@ This repository is a (more-or-less) comprehensive list of the projects I have wo
 
     | [[file:machine-learning/Dimensionality_Reduction.ipynb][Dimensionality Reduction]]  |  Python | Hierarchical clustering, t-SNE, clustering| Classify written numbers (MNIST) | Nov 2018
     | [[file:machine-learning/Costa_Rica_Poverty.ipynb][Poverty]] |  Python | Logistic regression, Naive Bayes, Random Forest, K-Nearest Neighbors | Determine causes of poverty in Costa Rica | Nov 2018
-    | [[file:machine-learning/HousingPrices.ipynb][Housing Prices]]  |  Python | SGD, Lasso, Kernel Ridge, K Nearest Neighbors, feature engineering, train-test-split| Predict Housing Prices (Supervised learning) | Oct 2018
+    | [[file:machine-learning/Housing_Prices.ipynb][Housing Prices]]  |  Python | SGD, Lasso, Kernel Ridge, K Nearest Neighbors, feature engineering, train-test-split| Predict Housing Prices (Supervised learning) | Oct 2018
 
 
 
