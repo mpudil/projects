@@ -11,10 +11,10 @@ This repository is a (more-or-less) comprehensive list of the projects I have wo
 ** Featured projects:
     | Project | Language(s) | Method(s) | Description   |
     |------------+--------+---------------------------------------------|
+    | [[file:EnglishProficiency][English Proficiency]] |  R | NLP, PCA, Random Forest, Shiny | Determine probability of individual passing the TOEFL exam. Includes GUI interface for student to write essay. | Jan 2020
     | [[https://github.com/mpudil/random-forest][Random Forest]] |  Python, SQL | Random Forest, object-oriented programming | Create Python Random Forests and SQL decision trees from scratch 
     | [[file:closest-pair][Closest Pair]]   |  R | Divide and conquer | Determine closest pair of points from given set |
-    | [[file:Stylometrics][Stylometrics]] |  R | NLP, PCA, Random Forest | Determine distinguishability of authors in religious/historical text|
-    
+
 
 ** All projects:
 
