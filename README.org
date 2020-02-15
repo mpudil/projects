@@ -55,7 +55,7 @@ This repository is a (more-or-less) comprehensive list of the projects I have wo
 
     | Project | Language(s) | Method(s) | Description   | Date | 
     |-------------------+--------+-------------------------------------------------------------|
-        | [[file:EnglishProficiency][English Proficiency]] |  R | NLP, PCA, Random Forest, Shiny | Determine probability of individual passing the TOEFL exam. Includes GUI interface for student to write essay. | Jan 2020
+     | [[file:EnglishProficiency][English Proficiency]] |  R | NLP, PCA, Random Forest, Shiny | Determine probability of individual passing the TOEFL exam. Includes GUI interface for student to write essay. | Jan 2020 |
     | [[file:Stylometrics][Stylometrics]] |  R | NLP, PCA, Random Forest | Determine distinguishability of authors in Book of Mormon | Dec 2019
     | [[file:information-retrieval-bow][Information Retrieval]] |  R | NLP, PCA| Use bag of words to search and cluster text data | Oct 2019 |
 
