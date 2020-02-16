@@ -11,9 +11,9 @@ This repository is a (more-or-less) comprehensive list of the projects I have wo
 ** Featured projects:
     | Project | Language(s) | Method(s) | Description   |
     |------------+--------+---------------------------------------------|
-    | [[file:EnglishProficiency][English Proficiency]] |  R | NLP, PCA, Random Forest, Shiny | Determine probability of individual passing the TOEFL exam. Includes GUI interface for student to write essay.
+    | [[file:EnglishProficiency][English Proficiency]] |  R | NLP, PCA, Random Forest, Shiny | Determine probability of individual passing the TOEFL exam. Includes GUI interface for student to write essay and PowerPoint.
     | [[https://github.com/mpudil/random-forest][Random Forest]] |  Python, SQL | Random Forest, object-oriented programming | Create Python Random Forests and SQL decision trees from scratch 
-    | [[file:closest-pair][Closest Pair]]   |  R | Divide and conquer | Determine closest pair of points from given set |
+    | [[file:sound-of-music][Sound of Music]]   |  R | Divide and conquer | Determine factors that affect how people interpret music genre. Includes paper. |
 
 
 ** All projects:
