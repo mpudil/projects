@@ -13,7 +13,7 @@ This repository is a (more-or-less) comprehensive list of the projects I have wo
     |------------+--------+---------------------------------------------|
     | [[file:EnglishProficiency][English Proficiency]] |  R | NLP, PCA, Random Forest, Shiny | Determine probability of individual passing the TOEFL exam. Includes GUI interface for student to write essay and PowerPoint.
     | [[https://github.com/mpudil/random-forest][Random Forest]] |  Python, SQL | Random Forest, object-oriented programming | Create Python Random Forests and SQL decision trees from scratch 
-    | [[file:sound-of-music][Sound of Music]]   |  R | Divide and conquer | Determine factors that affect how people interpret music genre. Includes paper. |
+    | [[file:sound-of-music][Sound of Music]]   |  R | Mixed models, hierarchical modeling | Determine factors that affect how people interpret music genre. Includes paper. |
 
 
 ** All projects:
