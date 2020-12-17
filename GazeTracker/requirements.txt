@@ -1,0 +1,14 @@
+cmake==3.18.4.post1
+dash==1.13.4
+dash-core-components==1.10.1
+dash-html-components==1.0.3
+dlib == 19.16.0
+future==0.18.2
+gunicorn==20.0.4
+numpy==1.18.1
+opencv_python==3.4.5.20
+opencv-python-headless==4.2.0.32
+pandas==1.0.1
+plotly==4.8.2
+
+# -e git://github.com/antoinelame/GazeTracking.git
