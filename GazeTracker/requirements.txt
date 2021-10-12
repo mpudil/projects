@@ -6,7 +6,7 @@ dlib == 19.16.0
 future==0.18.2
 gunicorn==20.0.4
 numpy==1.18.1
-opencv_python==3.4.5.20
+opencv_python==4.2.0.32
 opencv-python-headless==4.2.0.32
 pandas==1.0.1
 plotly==4.8.2
